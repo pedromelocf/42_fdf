@@ -38,7 +38,7 @@ all: libft $(NAME)
 
 $(NAME): $(FDF_OBJ)
 	cp $(LIBFT_DIR)/libft.a $(NAME)
-	ar rcs $(NAME) $(FDF_OBJ)
+	ar rcs $(NAME) $(FDF_OBJ) $(LIBFT_OBJ) $(GNL_OBJ) $(PRINTF_OBJ)
 
 $(FDF_SRC_PATH)%.o: $(FDF_SRC_PATH)%.c $(FDF_INCLUDES)
 	$(CC) $(FLAGS) -c $< -o $@
