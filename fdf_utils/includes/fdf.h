@@ -6,7 +6,7 @@
 /*   By: pmelo-ca <pmelo-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 16:19:56 by pmelo-ca          #+#    #+#             */
-/*   Updated: 2023/11/17 16:24:37 by pmelo-ca         ###   ########.fr       */
+/*   Updated: 2023/11/17 21:33:14 by pmelo-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,8 @@
 # define FDF_H
 
 #include "../../MLX42/include/MLX42/MLX42.h"
-#include <unistd.h>
-#include <stdlib.h>
-#include <stdio.h>
-#include <stdarg.h>
+#include "../../lib/libft.h"
+#include "../../lib/gnl/get_next_line.h"
+#include "../../lib/printf/ft_printf.h"
 
 #endif
