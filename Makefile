@@ -1,15 +1,19 @@
 NAME = fdf
 
 LIBFT_DIR = ./lib
-LIBFT_PATH = ./lib/*.o ./lib/*.a
+LIBFT_PATH = ./lib/libft/*.o ./lib/*.a
+GNL_PATH = ./lib/gnl/*.o
+PRINTF_PATH = ./lib/printf/*.o
 
-SRCS =
+# BONUS_SRCS = \
 
-BONUS_SRCS = \
+FDF_SRC_PATH = ./fdf_utils/
+INCLUDES = ./fdf_utils/includes/fdf.h
+LIB_OBJ = $(addprefix $(FDF_SRC_PATH), $(FDF_SRCS:.c=.o))
 
+FDF_SRCS = main.c
 
-OBJ = $(SRCS:.c=.o)
-BONUS_OBJ = $(BONUS_SRCS:.c=.o)
+# BONUS_OBJ = $(BONUS_SRCS:.c=.o)
 FLAGS = -Wall -Werror -Wextra
 MAKEFLAG += make --no-print-directory
 
@@ -23,11 +27,11 @@ $(NAME): $(OBJ)
 	cp $(LIBFT_DIR)/libft.a $(NAME)
 	ar rcs $(NAME) $(OBJ)
 
-%.o: %.c
+$(FDF_SRC_PATH)%.o: $(FDF_SRC_PATH)%.c $(FDF_INCLUDES)
 	$(CC) $(FLAGS) -c $< -o $@
 
 clean :
-	rm -f $(OBJ) $(BONUS_OBJ) $(LIBFT_PATH)
+	rm -f $(OBJ) $(BONUS_OBJ) $(LIBFT_PATH) $(GNL_PATH) $(PRINTF_PATH)
 
 fclean : clean
 	rm -f $(NAME)

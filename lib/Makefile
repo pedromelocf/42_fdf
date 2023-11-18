@@ -81,9 +81,7 @@ $(PRINTF_SRC_PATH)%.o: $(PRINTF_SRC_PATH)%.c $(PRINTF_INCLUDES)
 	$(CC) $(FLAGS) -c $< -o $@
 
 clean :
-	rm -f $(LIB_OBJ)
-	rm -f $(GNL_OBJ)
-	rm -f $(PRINTF_OBJ)
+	rm -f $(LIB_OBJ) $(GNL_OBJ) $(PRINTF_OBJ)
 
 fclean : clean
 	rm -f $(NAME)
