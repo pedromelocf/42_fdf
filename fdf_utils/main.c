@@ -6,7 +6,7 @@
 /*   By: pmelo-ca <pmelo-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 16:11:00 by pmelo-ca          #+#    #+#             */
-/*   Updated: 2023/11/18 16:32:27 by pmelo-ca         ###   ########.fr       */
+/*   Updated: 2023/11/18 18:27:40 by pmelo-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,8 @@ int main(int argc, char **argv)
 {
 	if (argc != 2 || !(check_map_format(argv[1])))
 		return(printf("%s", "error"));
-	else
-	{
-
-	}
-	return (0);
+	map_read(argv[1]);
+	return (1);
 }
 
 // else

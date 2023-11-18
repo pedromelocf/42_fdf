@@ -6,7 +6,7 @@
 /*   By: pmelo-ca <pmelo-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 12:04:17 by pmelo-ca          #+#    #+#             */
-/*   Updated: 2023/11/17 21:35:36 by pmelo-ca         ###   ########.fr       */
+/*   Updated: 2023/11/18 20:00:51 by pmelo-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,14 +98,4 @@ char	*ft_strchr(const char *s, int c)
 	if (c == 0)
 		return ((char *)&s[i]);
 	return (NULL);
-}
-
-size_t	ft_strlen(const char *s)
-{
-	size_t	counter;
-
-	counter = 0;
-	while (s[counter])
-		counter++;
-	return (counter);
 }

@@ -1,25 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf.h                                              :+:      :+:    :+:   */
+/*   map_read.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pmelo-ca <pmelo-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/17 16:19:56 by pmelo-ca          #+#    #+#             */
-/*   Updated: 2023/11/18 18:07:49 by pmelo-ca         ###   ########.fr       */
+/*   Created: 2023/11/18 18:06:23 by pmelo-ca          #+#    #+#             */
+/*   Updated: 2023/11/18 19:55:39 by pmelo-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FDF_H
+#include "./includes/fdf.h"
 
-# define FDF_H
+int		map_read(const char *argv)
+{
+	int		fd;
+	char	map[154545];
+	int		bytesread;
 
-#include "../../MLX42/include/MLX42/MLX42.h"
-#include "../../lib/libft.h"
-#include "../../lib/gnl/get_next_line.h"
-#include "../../lib/printf/ft_printf.h"
-
-int		check_map_format(const char *argv);
-int		map_read(const char *argv);
-
-#endif
+	fd = open(argv, O_RDONLY);
+	bytesread = read(fd, map, sizeof(map - 1));
+	map[bytesread] = '\0';
+	ft_printf("%s", ft_split(map, ' '));
+	close(fd);
+	return 1;
+}
