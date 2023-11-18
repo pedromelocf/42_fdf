@@ -6,7 +6,7 @@
 /*   By: pmelo-ca <pmelo-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 14:51:05 by pmelo-ca          #+#    #+#             */
-/*   Updated: 2023/10/09 12:12:09 by pmelo-ca         ###   ########.fr       */
+/*   Updated: 2023/11/17 21:19:05 by pmelo-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # define NONCAPHEX "0123456789abcdef"
 # define CAPHEX "0123456789ABCDEF"
 
-# include "../../libft/libft.h"
+# include "../libft.h"
 # include <stdarg.h>
 # include <stdio.h>
 # include <unistd.h>

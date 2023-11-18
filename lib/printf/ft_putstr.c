@@ -6,11 +6,11 @@
 /*   By: pmelo-ca <pmelo-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/30 17:00:03 by pmelo-ca          #+#    #+#             */
-/*   Updated: 2023/10/09 12:13:17 by pmelo-ca         ###   ########.fr       */
+/*   Updated: 2023/11/17 21:20:15 by pmelo-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/ft_printf.h"
+#include "./ft_printf.h"
 
 int	ft_putstr(char *str)
 {

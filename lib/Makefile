@@ -1,12 +1,9 @@
-NAME = libft.a
-
+#LIBFT
 LIB_SRC_PATH = ./libft/
-LIB_OBJ_DEST = ./libft/
-OBJ = $(addprefix $(LIB_OBJ_DEST), $(SRCS:.c=.o))
-INCLUDES = libft.h
-FLAGS = -Wall -Werror -Wextra
+LIB_INCLUDES = libft.h
+LIB_OBJ = $(addprefix $(LIB_SRC_PATH), $(LIB_SRCS:.c=.o))
 
-SRCS = ft_isalpha.c \
+LIB_SRCS = ft_isalpha.c \
 	ft_isdigit.c \
 	ft_isalnum.c \
 	ft_isascii.c \
@@ -41,16 +38,52 @@ SRCS = ft_isalpha.c \
 	ft_putendl_fd.c \
 	ft_putnbr_fd.c
 
+#GNL
+GNL_SRC_PATH = ./gnl/
+GNL_INCLUDES = ./gnl/get_next_line.h
+GNL_OBJ = $(addprefix $(GNL_SRC_PATH), $(GNL_SRCS:.c=.o))
+
+GNL_SRCS = get_next_line_utils.c \
+	get_next_line.c
+
+#PRINTF
+PRINTF_SRC_PATH = ./printf/
+PRINTF_INCLUDES = ./printf/ft_printf.h
+PRINTF_OBJ = $(addprefix $(PRINTF_SRC_PATH), $(PRINTF_SRCS:.c=.o))
+
+PRINTF_SRCS = ft_check_conversion.c \
+	ft_printf.c \
+	ft_putchar.c \
+	ft_put_hex.c \
+	ft_putnbr_base.c \
+	ft_putnbr.c \
+	ft_putnbr_hex.c \
+	ft_putstr.c \
+	ft_put_unsigned.c \
+	ft_put_void_pointer.c
+
+NAME = libft.a
+FLAGS = -Wall -Werror -Wextra
+CC = cc
+
 all: $(NAME)
 
-$(NAME): $(OBJ)
-
-$(LIB_OBJ_DEST)%.o: $(LIB_SRC_PATH)%.c $(INCLUDES)
-	$(CC) $(FLAGS) -c $< -o $@
+$(NAME): $(LIB_OBJ) $(GNL_OBJ) $(PRINTF_OBJ)
 	ar rcs $(NAME) $@
 
+$(LIB_SRC_PATH)%.o: $(LIB_SRC_PATH)%.c $(LIB_INCLUDES)
+	$(CC) $(FLAGS) -c $< -o $@
+
+$(GNL_SRC_PATH)%.o: $(GNL_SRC_PATH)%.c $(GNL_INCLUDES)
+	$(CC) $(FLAGS) -c $< -o $@
+
+$(PRINTF_SRC_PATH)%.o: $(PRINTF_SRC_PATH)%.c $(PRINTF_INCLUDES)
+	$(CC) $(FLAGS) -c $< -o $@
+
 clean :
-	rm -f $(OBJ)
+	rm -f $(LIB_OBJ)
+	rm -f $(GNL_OBJ)
+	rm -f $(PRINTF_OBJ)
 
 fclean : clean
 	rm -f $(NAME)
