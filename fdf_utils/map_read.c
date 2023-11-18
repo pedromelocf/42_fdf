@@ -6,7 +6,7 @@
 /*   By: pmelo-ca <pmelo-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 18:06:23 by pmelo-ca          #+#    #+#             */
-/*   Updated: 2023/11/18 19:55:39 by pmelo-ca         ###   ########.fr       */
+/*   Updated: 2023/11/18 20:21:15 by pmelo-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,12 @@ int		map_read(const char *argv)
 	int		fd;
 	char	map[154545];
 	int		bytesread;
+	char	**test;
 
 	fd = open(argv, O_RDONLY);
-	bytesread = read(fd, map, sizeof(map - 1));
+	bytesread = read(fd, map, 1000);
 	map[bytesread] = '\0';
-	ft_printf("%s", ft_split(map, ' '));
+	test = ft_split(map, ' ');
 	close(fd);
 	return 1;
 }
