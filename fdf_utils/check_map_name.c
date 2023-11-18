@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf.h                                              :+:      :+:    :+:   */
+/*   check_map_name.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pmelo-ca <pmelo-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/17 16:19:56 by pmelo-ca          #+#    #+#             */
-/*   Updated: 2023/11/18 03:41:12 by pmelo-ca         ###   ########.fr       */
+/*   Created: 2023/11/18 03:45:56 by pmelo-ca          #+#    #+#             */
+/*   Updated: 2023/11/18 03:46:19 by pmelo-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FDF_H
+#include "./includes/fdf.h"
 
-# define FDF_H
+int		check_map_format(const char argv[1])
+{
+	int map_name_len;
 
-#include "../../MLX42/include/MLX42/MLX42.h"
-#include "../../lib/libft.h"
-#include "../../lib/gnl/get_next_line.h"
-#include "../../lib/printf/ft_printf.h"
+	map_name_len = ft_strlen(argv);
+	if (ft_strnstr(argv, ".fdf", map_name_len))
+		return(0);
+	return(1);
 
-int		check_map_format(const char argv[1]);
-
-#endif
+}

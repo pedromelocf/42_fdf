@@ -1,6 +1,6 @@
 #LIBFT
 LIB_SRC_PATH = ./libft/
-LIB_INCLUDES = libft.h
+LIB_INCLUDES = ./libft.h
 LIB_OBJ = $(addprefix $(LIB_SRC_PATH), $(LIB_SRCS:.c=.o))
 
 LIB_SRCS = ft_isalpha.c \

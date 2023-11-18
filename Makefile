@@ -9,7 +9,8 @@ FDF_SRC_PATH = ./fdf_utils/
 FDF_INCLUDES = ./fdf_utils/includes/fdf.h
 FDF_OBJ = $(addprefix $(FDF_SRC_PATH), $(FDF_SRCS:.c=.o))
 
-FDF_SRCS = main.c
+FDF_SRCS = main.c \
+	check_map_name.c
 
 #FDF BONUS
 FDF_BONUS_SRC_PATH =./fdf_utils_bonus/
