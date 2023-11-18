@@ -18,6 +18,13 @@ FDF_BONUS_OBJ = $(addprefix $(FDF_BONUS_SRC_PATH), $(FDF_BONUS_SRCS:.c=.o))
 
 FDF_BONUS_SRCS = \
 
+#MLX42
+LIB_MLX_FLAGS = -Iinclude -ldl -lglfw -pthread -lm
+# LIBMLX_SRC_PATH = ./MLX/src/*.c
+# LIBMLX_INCLUDES = ./MLX/include/*.h
+# LIBMLX_OBJ = $(addprefix $(LIBMLX_SRC_PATH), $(LIBMLX_SRCS:.c=.o))
+LIB_MLX_SRCS = ./MLX42/build/libmlx42.a
+
 ifdef WITH_BONUS
 	FDF_OBJ = $(FDF_BONUS_OBJ)
 endif
