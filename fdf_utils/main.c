@@ -6,11 +6,11 @@
 /*   By: pmelo-ca <pmelo-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 16:11:00 by pmelo-ca          #+#    #+#             */
-/*   Updated: 2023/11/17 21:32:36 by pmelo-ca         ###   ########.fr       */
+/*   Updated: 2023/11/17 21:59:18 by pmelo-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./fdf_utils/includes/fdf.h"
+#include "./includes/fdf.h"
 
 int main(int argc, char **argv)
 {
@@ -27,6 +27,7 @@ int main(int argc, char **argv)
 			return(printf("%s", "error"));
 		mlx_put_pixel(img, 0, 0, 0xFF0000FF);
 		mlx_loop(mlx);
+		printf("Heel %s", argv[1]);
 	}
 	return (0);
 }
