@@ -6,7 +6,7 @@
 /*   By: pmelo-ca <pmelo-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 16:11:00 by pmelo-ca          #+#    #+#             */
-/*   Updated: 2023/11/18 16:28:03 by pmelo-ca         ###   ########.fr       */
+/*   Updated: 2023/11/18 16:32:27 by pmelo-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,11 @@
 
 int main(int argc, char **argv)
 {
-	mlx_t*	mlx;
-	mlx_image_t* img;
-
 	if (argc != 2 || !(check_map_format(argv[1])))
 		return(printf("%s", "error"));
 	else
 	{
-		
+
 	}
 	return (0);
 }
