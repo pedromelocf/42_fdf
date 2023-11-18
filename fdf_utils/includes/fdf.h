@@ -6,7 +6,7 @@
 /*   By: pmelo-ca <pmelo-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 16:19:56 by pmelo-ca          #+#    #+#             */
-/*   Updated: 2023/11/18 16:13:22 by pmelo-ca         ###   ########.fr       */
+/*   Updated: 2023/11/18 16:26:06 by pmelo-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,5 @@
 #include "../../lib/printf/ft_printf.h"
 
 int		check_map_format(const char *argv);
-int check_map_content(const char *argv);
 
 #endif
