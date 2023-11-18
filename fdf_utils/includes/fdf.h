@@ -6,7 +6,7 @@
 /*   By: pmelo-ca <pmelo-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 16:19:56 by pmelo-ca          #+#    #+#             */
-/*   Updated: 2023/11/18 03:41:12 by pmelo-ca         ###   ########.fr       */
+/*   Updated: 2023/11/18 15:36:51 by pmelo-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,6 @@
 #include "../../lib/gnl/get_next_line.h"
 #include "../../lib/printf/ft_printf.h"
 
-int		check_map_format(const char argv[1]);
+int		check_map_format(const char *argv);
 
 #endif
