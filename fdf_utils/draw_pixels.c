@@ -1,31 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map_read.c                                         :+:      :+:    :+:   */
+/*   draw_pixels.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pmelo-ca <pmelo-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/18 18:06:23 by pmelo-ca          #+#    #+#             */
-/*   Updated: 2023/11/18 21:03:19 by pmelo-ca         ###   ########.fr       */
+/*   Created: 2023/11/18 20:33:21 by pmelo-ca          #+#    #+#             */
+/*   Updated: 2023/11/18 21:08:07 by pmelo-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./includes/fdf.h"
 
-char		**map_read(const char *argv)
+void	draw_pixels(char **map, mlx_image_t *img)
 {
-	int		fd;
-	char	map[154545];
-	int		bytesread;
-	char	**test;
+   int x = 0;
+    int y = 0;
 
-	fd = open(argv, O_RDONLY);
-	bytesread = read(fd, map, 1000);
-	map[bytesread] = '\0';
-	test = ft_split(map, ' ');
-	for (int i = 0; test[i] != NULL; i++) {
-        ft_printf("%s\n", test[i]);
-	}
-	close(fd);
-	return (test);
+    while (map[y] != NULL)
+    {
+        x = 0;
+        while (map[y][x] != '\0')
+        {
+            if (map[y][x] == '0')
+                mlx_put_pixel(img, x, y, 0xFFFFFF);
+            else if (map[y][x] == '1')
+                mlx_put_pixel(img, x, y, 0xFFFFFF);
+            x++;
+        }
+        y++;
+    }
+	return;
 }
