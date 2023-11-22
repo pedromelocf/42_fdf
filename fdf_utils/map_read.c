@@ -6,7 +6,7 @@
 /*   By: pmelo-ca <pmelo-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 18:06:23 by pmelo-ca          #+#    #+#             */
-/*   Updated: 2023/11/21 19:46:26 by pmelo-ca         ###   ########.fr       */
+/*   Updated: 2023/11/22 14:59:59 by pmelo-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 t_map	*map_read(const char *argv)
 {
+	t_map			*head;
+	t_map			*current;
 	t_map			*s_map;
 	char			**split_result;
 	char			*line;
@@ -23,24 +25,44 @@ t_map	*map_read(const char *argv)
 
 	fd = open(argv, O_RDONLY);
 	y = 0;
-	s_map = malloc(sizeof(t_map));
-	s_map->s_coordinate = malloc(sizeof(t_coordinates));
+	head = NULL;
+	current = NULL;
 	while ((line = get_next_line(fd)) != NULL)
 	{
 		x = 0;
 		split_result = ft_split(line, ' ');
 		while (split_result[x] != NULL)
 		{
-			s_map->s_coordinate->x = x;
-			s_map->s_coordinate->y = y;
-			s_map->s_coordinate->z = ft_atoi(split_result[x]);
-			s_map->content = s_map;
-			s_map->next = NULL;
+			s_map = new_node(x, y, ft_atoi(split_result[x]));
+			if (head == NULL)
+			{
+				head = s_map;
+				current = head;
+			}
+			else
+			{
+				current->next = s_map;
+				current = s_map;
+			}
 			x++;
 		}
 		free(split_result);
 		y++;
 	}
 	close(fd);
-	return (s_map);
+	return (head);
+}
+
+t_map	*new_node(int x, int y, int z)
+{
+	t_map	*node;
+
+	node = malloc(sizeof(t_map));
+	node->s_coordinate = malloc(sizeof(t_coordinates));
+	node->s_coordinate->x = x;
+	node->s_coordinate->y = y;
+	node->s_coordinate->z = z;
+	node->next = NULL;
+
+	return(node);
 }
