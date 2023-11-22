@@ -6,7 +6,7 @@
 /*   By: pmelo-ca <pmelo-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 18:06:23 by pmelo-ca          #+#    #+#             */
-/*   Updated: 2023/11/22 14:59:59 by pmelo-ca         ###   ########.fr       */
+/*   Updated: 2023/11/22 15:25:34 by pmelo-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,15 +34,17 @@ t_map	*map_read(const char *argv)
 		while (split_result[x] != NULL)
 		{
 			s_map = new_node(x, y, ft_atoi(split_result[x]));
+			if (!s_map)
+				return(NULL);
 			if (head == NULL)
 			{
 				head = s_map;
 				current = head;
 			}
-			else
+			if (head != NULL)
 			{
 				current->next = s_map;
-				current = s_map;
+				current = current->next;
 			}
 			x++;
 		}
@@ -58,7 +60,14 @@ t_map	*new_node(int x, int y, int z)
 	t_map	*node;
 
 	node = malloc(sizeof(t_map));
+	if (!node)
+		return (NULL);
 	node->s_coordinate = malloc(sizeof(t_coordinates));
+	if(!node->s_coordinate)
+	{
+		free(node);
+		return(NULL);
+	}
 	node->s_coordinate->x = x;
 	node->s_coordinate->y = y;
 	node->s_coordinate->z = z;
