@@ -6,7 +6,7 @@
 /*   By: pmelo-ca <pmelo-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 16:19:56 by pmelo-ca          #+#    #+#             */
-/*   Updated: 2023/11/22 15:15:07 by pmelo-ca         ###   ########.fr       */
+/*   Updated: 2023/11/22 16:31:22 by pmelo-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,9 @@ typedef struct s_map
 
 int		check_map_format(const char *argv);
 t_map	*map_read(const char *argv);
+t_map	*new_list(char *line, int y);
 t_map	*new_node(int x, int y, int z);
+t_map	*insert_nodes(t_map *s_list);
 void	draw_pixels(t_map   *s_map, mlx_image_t *img);
 
 #endif
