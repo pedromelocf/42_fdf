@@ -6,7 +6,7 @@
 /*   By: pmelo-ca <pmelo-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 16:11:00 by pmelo-ca          #+#    #+#             */
-/*   Updated: 2023/11/22 15:56:16 by pmelo-ca         ###   ########.fr       */
+/*   Updated: 2023/11/23 15:06:52 by pmelo-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ int main(int argc, char **argv)
 	if (argc != 2 || !(check_map_format(argv[1])))
 		return(printf("%s", "error"));
 	s_map = map_read(argv[1]);
-	mlx = mlx_init(1080, 1080, "FDF", true);
-	img = mlx_new_image(mlx, 1080, 1080);
+	mlx = mlx_init(WIDTH, HEIGHT, "FDF", true);
+	img = mlx_new_image(mlx, WIDTH, HEIGHT);
 	if (!img || (mlx_image_to_window(mlx, img, 0, 0) < 0))
 		return(printf("%s", "error"));
 	draw_pixels(s_map, img);
