@@ -12,7 +12,8 @@ FDF_OBJ = $(addprefix $(FDF_SRC_PATH), $(FDF_SRCS:.c=.o))
 FDF_SRCS = main.c \
 	check_map_format.c \
 	map_read.c \
-	draw_pixels.c
+	draw_pixels.c \
+	clean_data.c
 
 #FDF BONUS
 FDF_BONUS_SRC_PATH =./fdf_utils_bonus/

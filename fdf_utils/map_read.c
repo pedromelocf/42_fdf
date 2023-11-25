@@ -6,7 +6,7 @@
 /*   By: pmelo-ca <pmelo-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 18:06:23 by pmelo-ca          #+#    #+#             */
-/*   Updated: 2023/11/23 12:03:09 by pmelo-ca         ###   ########.fr       */
+/*   Updated: 2023/11/25 17:47:16 by pmelo-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ t_map	*map_read(const char *argv)
 	{
 		s_map = insert_node(s_map, new_list(line, y));
 		y++;
+		free(line);
 	}
 	close(fd);
 	return (s_map);
@@ -71,7 +72,6 @@ t_map	*new_node(int x, int y, int z)
 	node->s_coordinate->y = y;
 	node->s_coordinate->z = z;
 	node->next = NULL;
-
 	return(node);
 }
 
