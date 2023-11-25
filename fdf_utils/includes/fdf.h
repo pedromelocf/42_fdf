@@ -6,7 +6,7 @@
 /*   By: pmelo-ca <pmelo-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 16:19:56 by pmelo-ca          #+#    #+#             */
-/*   Updated: 2023/11/23 15:06:28 by pmelo-ca         ###   ########.fr       */
+/*   Updated: 2023/11/23 18:13:19 by pmelo-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 #include "../../lib/gnl/get_next_line.h"
 #include "../../lib/printf/ft_printf.h"
 
-#define WIDTH 500
+#define WIDTH 750
 #define HEIGHT 500
 
 typedef	struct	s_coordinate
@@ -41,5 +41,6 @@ t_map	*new_list(char *line, int y);
 t_map	*new_node(int x, int y, int z);
 t_map	*insert_node(t_map *head, t_map *s_list);
 void	draw_pixels(t_map   *s_map, mlx_image_t *img);
+void	draw_background(mlx_image_t *img);
 
 #endif
