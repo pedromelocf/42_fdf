@@ -6,7 +6,7 @@
 /*   By: pmelo-ca <pmelo-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 16:19:56 by pmelo-ca          #+#    #+#             */
-/*   Updated: 2023/11/25 17:07:49 by pmelo-ca         ###   ########.fr       */
+/*   Updated: 2023/11/25 21:02:40 by pmelo-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,14 @@
 #include "../../lib/gnl/get_next_line.h"
 #include "../../lib/printf/ft_printf.h"
 
-#define WIDTH 750
-#define HEIGHT 500
+#define WIDTH 1950
+#define HEIGHT 1050
 
 typedef	struct	s_coordinate
 {
-	int	x;
-	int	y;
-	int	z;
+	float	x;
+	float	y;
+	float	z;
 }	t_coordinates;
 
 typedef struct s_map

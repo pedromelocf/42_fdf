@@ -6,7 +6,7 @@
 /*   By: pmelo-ca <pmelo-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 16:11:00 by pmelo-ca          #+#    #+#             */
-/*   Updated: 2023/11/25 17:32:39 by pmelo-ca         ###   ########.fr       */
+/*   Updated: 2023/11/25 17:53:43 by pmelo-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ int main(int argc, char **argv)
 		return(printf("%s", "error"));
 	draw_pixels(s_map, img);
 	mlx_loop(mlx);
+	mlx_delete_image(mlx, img);
 	mlx_terminate(mlx);
 	clean_data(s_map);
 	return (1);
