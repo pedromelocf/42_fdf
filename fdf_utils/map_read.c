@@ -6,7 +6,7 @@
 /*   By: pmelo-ca <pmelo-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 18:06:23 by pmelo-ca          #+#    #+#             */
-/*   Updated: 2023/11/25 17:47:16 by pmelo-ca         ###   ########.fr       */
+/*   Updated: 2023/11/27 11:47:07 by pmelo-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 t_map	*map_read(const char *argv)
 {
-	t_map			*s_map;
+	t_map			*s_temp;
 	char			*line;
 	int				fd;
 	int				y;
 
 	fd = open(argv, O_RDONLY);
 	y = 0;
-	s_map = NULL;
+	s_temp = NULL;
 	if (fd == -1)
 	{
 		perror("Error opening file");
@@ -29,12 +29,12 @@ t_map	*map_read(const char *argv)
 	}
 	while ((line = get_next_line(fd)) != NULL)
 	{
-		s_map = insert_node(s_map, new_list(line, y));
+		s_temp = insert_node(s_temp, new_list(line, y));
 		y++;
 		free(line);
 	}
 	close(fd);
-	return (s_map);
+	return (s_temp);
 }
 
 t_map	*new_list(char *line, int y)
@@ -53,26 +53,6 @@ t_map	*new_list(char *line, int y)
 	}
 	free(split_result);
 	return(s_list);
-}
-
-t_map	*new_node(int x, int y, int z)
-{
-	t_map	*node;
-
-	node = malloc(sizeof(t_map));
-	if (!node)
-		return (NULL);
-	node->s_coordinate = malloc(sizeof(t_coordinates));
-	if(!node->s_coordinate)
-	{
-		free(node);
-		return(NULL);
-	}
-	node->s_coordinate->x = x;
-	node->s_coordinate->y = y;
-	node->s_coordinate->z = z;
-	node->next = NULL;
-	return(node);
 }
 
 t_map	*insert_node(t_map *head, t_map *s_list)
@@ -95,4 +75,24 @@ t_map	*insert_node(t_map *head, t_map *s_list)
 		current = current->next;
 	}
 	return (head);
+}
+
+t_map	*new_node(int x, int y, int z)
+{
+	t_map	*node;
+
+	node = malloc(sizeof(t_map));
+	if (!node)
+		return (NULL);
+	node->s_coordinate = malloc(sizeof(t_coordinates));
+	if(!node->s_coordinate)
+	{
+		free(node);
+		return(NULL);
+	}
+	node->s_coordinate->x = x;
+	node->s_coordinate->y = y;
+	node->s_coordinate->z = z;
+	node->next = NULL;
+	return(node);
 }
