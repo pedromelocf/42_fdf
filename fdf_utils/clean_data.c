@@ -6,7 +6,7 @@
 /*   By: pmelo-ca <pmelo-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 17:06:24 by pmelo-ca          #+#    #+#             */
-/*   Updated: 2023/11/27 13:59:57 by pmelo-ca         ###   ########.fr       */
+/*   Updated: 2023/11/28 16:09:30 by pmelo-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 void	clean_data(t_map	*s_map)
 {
 	t_map	*remove;
+
 	while (s_map != NULL)
 	{
 		remove = s_map;
@@ -26,4 +27,14 @@ void	clean_data(t_map	*s_map)
 		}
 		free(remove);
 	}
+}
+
+void	clean_split(char	**split_result)
+{
+	int x;
+
+	x = 0;
+	while(split_result[x])
+		free(split_result[x++]);
+	free(split_result);
 }
