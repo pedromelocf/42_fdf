@@ -6,7 +6,7 @@
 /*   By: pmelo-ca <pmelo-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 16:11:00 by pmelo-ca          #+#    #+#             */
-/*   Updated: 2023/11/27 14:00:37 by pmelo-ca         ###   ########.fr       */
+/*   Updated: 2023/11/28 15:05:03 by pmelo-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ int main(int argc, char **argv)
 	if (!img || (mlx_image_to_window(mlx, img, 0, 0) == -1))
 		return(printf("%s", "error"));
 	draw_pixels(s_map, img);
+	mlx_key_hook(mlx, &key_hook, NULL);
 	mlx_loop(mlx);
 	mlx_delete_image(mlx, img);
 	mlx_terminate(mlx);
