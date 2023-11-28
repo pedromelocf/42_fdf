@@ -6,7 +6,7 @@
 /*   By: pmelo-ca <pmelo-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 20:33:21 by pmelo-ca          #+#    #+#             */
-/*   Updated: 2023/11/28 13:51:35 by pmelo-ca         ###   ########.fr       */
+/*   Updated: 2023/11/28 15:23:25 by pmelo-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ int    map_size(t_map  *s_map)
     int     x;
     int     scale;
 
+    x = 0;
     while (s_map != NULL)
     {
         s_map = s_map->next;
