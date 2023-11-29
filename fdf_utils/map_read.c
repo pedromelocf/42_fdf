@@ -6,7 +6,7 @@
 /*   By: pmelo-ca <pmelo-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 18:06:23 by pmelo-ca          #+#    #+#             */
-/*   Updated: 2023/11/28 16:28:14 by pmelo-ca         ###   ########.fr       */
+/*   Updated: 2023/11/29 13:25:46 by pmelo-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ t_map	*map_read(const char *argv)
 		y++;
 		free(line);
 	}
+	s_temp->height = y;
 	close(fd);
 	return (s_temp);
 }
@@ -51,6 +52,7 @@ t_map	*new_list(char *line, int y)
 		s_list = insert_node(s_list, new_node(x, y, ft_atoi(split_result[x])));
 		x++;
 	}
+	s_list->width = x;
 	clean_split(split_result);
 	return(s_list);
 }
