@@ -6,7 +6,7 @@
 /*   By: pmelo-ca <pmelo-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 16:19:56 by pmelo-ca          #+#    #+#             */
-/*   Updated: 2023/11/28 16:02:23 by pmelo-ca         ###   ########.fr       */
+/*   Updated: 2023/11/29 11:59:04 by pmelo-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,6 @@ void	clean_data(t_map	*s_map);
 void	clean_split(char	**split_result);
 
 int		map_size(t_map  *s_map);
-void	key_hook(mlx_key_data_t keydata, void* param);
+void	key_hook(mlx_key_data_t keydata, void* mlx);
 
 #endif
