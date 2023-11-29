@@ -6,7 +6,7 @@
 /*   By: pmelo-ca <pmelo-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 20:33:21 by pmelo-ca          #+#    #+#             */
-/*   Updated: 2023/11/29 14:18:55 by pmelo-ca         ###   ########.fr       */
+/*   Updated: 2023/11/29 14:22:50 by pmelo-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void draw_pixels(t_map *s_map, mlx_image_t *img)
     int y = 0;
 
     draw_background(img);
-    map_matrix = get_map_matrix(s_map);
+    map_matrix = alloc_map_matrix(s_map);
     while (s_map != NULL)
     {
         y = 0;
@@ -54,7 +54,7 @@ void    draw_background(mlx_image_t *img)
     return;
 }
 
-float    **get_map_matrix(t_map *s_map)
+float    **alloc_map_matrix(t_map *s_map)
 {
     float    **map_matrix;
     int     x;

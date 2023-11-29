@@ -6,7 +6,7 @@
 /*   By: pmelo-ca <pmelo-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 16:19:56 by pmelo-ca          #+#    #+#             */
-/*   Updated: 2023/11/29 13:47:52 by pmelo-ca         ###   ########.fr       */
+/*   Updated: 2023/11/29 14:23:35 by pmelo-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ typedef struct s_map
 }	t_map;
 
 int		check_map_format(const char *argv);
-float    **get_map_matrix(t_map *s_map);
+float   **alloc_map_matrix(t_map *s_map);
 
 t_map	*map_read(const char *argv);
 t_map	*new_list(char *line, int y);
