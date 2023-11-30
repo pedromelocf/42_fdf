@@ -6,7 +6,7 @@
 /*   By: pmelo-ca <pmelo-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 20:33:21 by pmelo-ca          #+#    #+#             */
-/*   Updated: 2023/11/30 12:05:22 by pmelo-ca         ###   ########.fr       */
+/*   Updated: 2023/11/30 18:57:46 by pmelo-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,23 +15,10 @@
 void draw_pixels(t_map *s_map, mlx_image_t *img)
 {
     float    **map_matrix;
-    int     x;
-    int     y;
 
-    x = 0;
-    y = 0;
     draw_background(img);
     map_matrix = get_map_matrix(s_map);
-    while (x < s_map->width * s_map->height)
-    {
-        y = 0;
-        while (y < 1)
-        {
-            printf("Pos %d\n%f\n%f\n\n", x , map_matrix[x][y], map_matrix[x][y +1]);
-            y++;
-        }
-        x++;
-    }
+    clean_map_matrix(map_matrix);
     return ;
 }
 
@@ -63,7 +50,7 @@ float    **get_map_matrix(t_map *s_map)
 
     y = 0;
     x = 0;
-    map_matrix = malloc(sizeof(float *) * s_map->height * s_map->width + 1);
+    map_matrix = malloc(sizeof(float *) * (s_map->height * s_map->width + 2));
     while (s_map != NULL)
     {
         y = 0;

@@ -6,7 +6,7 @@
 /*   By: pmelo-ca <pmelo-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 16:19:56 by pmelo-ca          #+#    #+#             */
-/*   Updated: 2023/11/30 12:04:06 by pmelo-ca         ###   ########.fr       */
+/*   Updated: 2023/11/30 18:56:22 by pmelo-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,15 @@ typedef struct s_map
 {
 	t_coordinates	*s_coordinate;
 	struct s_map	*next;
-	float		width;
-	float		height;
+	int		width;
+	int		height;
 }	t_map;
+
+typedef struct s_map_size
+{
+	float		map_width;
+	float		map_height;
+}	t_map_size;
 
 int		check_map_format(const char *argv);
 float   **get_map_matrix(t_map *s_map);
@@ -50,8 +56,8 @@ void	draw_background(mlx_image_t *img);
 
 void	clean_data(t_map	*s_map);
 void	clean_split(char	**split_result);
+void	clean_map_matrix(float	**map_matrix);
 
-int		map_size(t_map  *s_map);
 void	key_hook(mlx_key_data_t keydata, void* mlx);
 
 #endif

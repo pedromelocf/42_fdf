@@ -6,7 +6,7 @@
 /*   By: pmelo-ca <pmelo-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 17:06:24 by pmelo-ca          #+#    #+#             */
-/*   Updated: 2023/11/28 16:09:30 by pmelo-ca         ###   ########.fr       */
+/*   Updated: 2023/11/30 18:55:26 by pmelo-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,4 +37,14 @@ void	clean_split(char	**split_result)
 	while(split_result[x])
 		free(split_result[x++]);
 	free(split_result);
+}
+
+void	clean_map_matrix(float	**map_matrix)
+{
+	int x;
+
+	x = 0;
+	while(map_matrix[x] != NULL)
+		free(map_matrix[x++]);
+	free(map_matrix);
 }
