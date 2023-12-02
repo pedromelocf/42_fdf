@@ -6,7 +6,7 @@
 /*   By: pmelo-ca <pmelo-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 20:33:21 by pmelo-ca          #+#    #+#             */
-/*   Updated: 2023/12/01 17:23:19 by pmelo-ca         ###   ########.fr       */
+/*   Updated: 2023/12/02 18:48:26 by pmelo-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,13 @@ void draw_pixels(t_map *s_map, mlx_image_t *img)
     int y = 0;
     int centrox = WIDTH / 2;
     int centroy = HEIGHT / 2;
-    int scale = 25;
+    int scale = 1.2;
     float   iso_x;
     float   iso_y;
 
     draw_background(img);
     map_matrix = get_map_matrix(s_map);
     s_map_size = get_map_size(map_matrix, s_map);
-    printf("%f\n%f\n\n", s_map_size->map_width, s_map_size->map_height);
     while (s_map != NULL)
     {
         y = 0;
@@ -37,7 +36,6 @@ void draw_pixels(t_map *s_map, mlx_image_t *img)
         x++;
         s_map = s_map->next;
     }
-    mlx_put_pixel(img, WIDTH/2, HEIGHT/2, 0x22F2FF);
     clean_map_matrix(map_matrix);
     return ;
 }
@@ -90,12 +88,13 @@ t_map_size    *get_map_size(float   **map_matrix, t_map *s_map)
     t_map_size  *s_map_size;
     int x;
     int y;
+    float   min_map_width = 0;
+    float   max_map_width = 0;
+    float   min_map_height = 0;
+    float   max_map_height = 0;
 
-    s_map_size = malloc(sizeof(float) * 6);
-    s_map_size->min_map_width = 0;
-    s_map_size->max_map_width = 0;
-    s_map_size->min_map_height = 0;
-    s_map_size->max_map_height = 0;
+
+    s_map_size = malloc(sizeof(float) * 2);
     x = 0;
     y = 0;
     while (x < s_map->width * s_map->height)
@@ -103,19 +102,19 @@ t_map_size    *get_map_size(float   **map_matrix, t_map *s_map)
         y = 0;
         while (y < 1)
         {
-            if(map_matrix[x][y] < s_map_size->min_map_width)
-                s_map_size->min_map_width = map_matrix[x][y];
-            if(map_matrix[x][y] > s_map_size->max_map_width)
-                s_map_size->max_map_width = map_matrix[x][y];
+            if(map_matrix[x][y] < min_map_width)
+                min_map_width = map_matrix[x][y];
+            if(map_matrix[x][y] > max_map_width)
+                max_map_width = map_matrix[x][y];
             y++;
-            if(map_matrix[x][y] < s_map_size->min_map_height)
-                s_map_size->min_map_height = map_matrix[x][y];
-            if(map_matrix[x][y] > s_map_size->max_map_height)
-                s_map_size->max_map_height = map_matrix[x][y];
+            if(map_matrix[x][y] < min_map_height)
+                min_map_height = map_matrix[x][y];
+            if(map_matrix[x][y] > max_map_height)
+                max_map_height = map_matrix[x][y];
         }
         x++;
     }
-    s_map_size->map_height = s_map_size->max_map_height - s_map_size->min_map_height;
-    s_map_size->map_width = s_map_size->max_map_width - s_map_size->min_map_width;
+    s_map_size->map_height = max_map_height + min_map_height;
+    s_map_size->map_width = max_map_width + min_map_width;
     return(s_map_size);
 }

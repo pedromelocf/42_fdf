@@ -6,7 +6,7 @@
 /*   By: pmelo-ca <pmelo-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 16:19:56 by pmelo-ca          #+#    #+#             */
-/*   Updated: 2023/12/01 11:49:32 by pmelo-ca         ###   ########.fr       */
+/*   Updated: 2023/12/02 18:49:22 by pmelo-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,12 +40,7 @@ typedef struct s_map
 typedef struct s_map_size
 {
 	float		map_width;
-	float		min_map_width;
-	float		max_map_width;
 	float		map_height;
-	float		min_map_height;
-	float		max_map_height;
-
 }	t_map_size;
 
 int		check_map_format(const char *argv);
