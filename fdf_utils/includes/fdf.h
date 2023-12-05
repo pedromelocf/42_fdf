@@ -6,7 +6,7 @@
 /*   By: pmelo-ca <pmelo-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 16:19:56 by pmelo-ca          #+#    #+#             */
-/*   Updated: 2023/12/02 18:49:22 by pmelo-ca         ###   ########.fr       */
+/*   Updated: 2023/12/05 17:55:52 by pmelo-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,15 +37,25 @@ typedef struct s_map
 	int		height;
 }	t_map;
 
-typedef struct s_map_size
+typedef struct s_matrix_width
 {
-	float		map_width;
-	float		map_height;
-}	t_map_size;
+	float	matrix_width;
+	float	min_matrix_width;
+    float	max_matrix_width;
+}	t_matrix_width;
+
+typedef struct s_matrix_height
+{
+	float	matrix_height;
+	float	min_matrix_height;
+    float	max_matrix_height;
+}	t_matrix_height;
 
 int		check_map_format(const char *argv);
 float   **get_map_matrix(t_map *s_map);
-t_map_size    *get_map_size(float   **map_matrix, t_map *s_map);
+t_matrix_width    *get_matrix_width(float   **map_matrix, t_map *s_map);
+t_matrix_height    *get_matrix_height(float   **map_matrix, t_map *s_map);
+
 
 t_map	*map_read(const char *argv);
 t_map	*new_list(char *line, int y);

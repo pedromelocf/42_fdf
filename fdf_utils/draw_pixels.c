@@ -6,7 +6,7 @@
 /*   By: pmelo-ca <pmelo-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 20:33:21 by pmelo-ca          #+#    #+#             */
-/*   Updated: 2023/12/02 18:48:26 by pmelo-ca         ###   ########.fr       */
+/*   Updated: 2023/12/05 17:56:34 by pmelo-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,24 +15,26 @@
 void draw_pixels(t_map *s_map, mlx_image_t *img)
 {
     float    **map_matrix;
-    t_map_size *s_map_size;
+    t_matrix_width  *s_matrix_width;
+    t_matrix_height *s_matrix_height;
     int x = 0;
     int y = 0;
     int centrox = WIDTH / 2;
     int centroy = HEIGHT / 2;
-    int scale = 1.2;
+    int scale = 30;
     float   iso_x;
     float   iso_y;
 
     draw_background(img);
     map_matrix = get_map_matrix(s_map);
-    s_map_size = get_map_size(map_matrix, s_map);
+    s_matrix_width = get_matrix_width(map_matrix, s_map);
+    s_matrix_height = get_matrix_height(map_matrix, s_map);
     while (s_map != NULL)
     {
         y = 0;
-        iso_x = (map_matrix[x][y] * scale) + centrox - (s_map_size->map_width / 2 * scale);
-        iso_y = (map_matrix[x][y + 1] * scale) + centroy - (s_map_size->map_height / 2 * scale);
-        mlx_put_pixel(img, iso_x, iso_y, 0x000222);
+        iso_x = (map_matrix[x][y] * scale) + centrox - (s_matrix_width->matrix_width / 2 * scale);
+        iso_y = (map_matrix[x][y + 1] * scale) + centroy - (s_matrix_height->matrix_height / 2 * scale);
+        mlx_put_pixel(img, iso_x, iso_y, 0xFFFFFF);
         x++;
         s_map = s_map->next;
     }
@@ -83,38 +85,58 @@ float    **get_map_matrix(t_map *s_map)
     return(map_matrix);
 }
 
-t_map_size    *get_map_size(float   **map_matrix, t_map *s_map)
+t_matrix_width    *get_matrix_width(float   **map_matrix, t_map *s_map)
 {
-    t_map_size  *s_map_size;
+    t_matrix_width  *s_matrix_width;
     int x;
     int y;
-    float   min_map_width = 0;
-    float   max_map_width = 0;
-    float   min_map_height = 0;
-    float   max_map_height = 0;
 
-
-    s_map_size = malloc(sizeof(float) * 2);
     x = 0;
     y = 0;
+    s_matrix_width = malloc(sizeof(float) * 3);
+    s_matrix_width->min_matrix_width = 0;
+    s_matrix_width->max_matrix_width = 0;
+
     while (x < s_map->width * s_map->height)
     {
         y = 0;
         while (y < 1)
         {
-            if(map_matrix[x][y] < min_map_width)
-                min_map_width = map_matrix[x][y];
-            if(map_matrix[x][y] > max_map_width)
-                max_map_width = map_matrix[x][y];
-            y++;
-            if(map_matrix[x][y] < min_map_height)
-                min_map_height = map_matrix[x][y];
-            if(map_matrix[x][y] > max_map_height)
-                max_map_height = map_matrix[x][y];
+            if(map_matrix[x][y] < s_matrix_width->min_matrix_width)
+                s_matrix_width->min_matrix_width = map_matrix[x][y];
+            if(map_matrix[x][y] > s_matrix_width->max_matrix_width)
+                s_matrix_width->max_matrix_width = map_matrix[x][y];
         }
         x++;
     }
-    s_map_size->map_height = max_map_height + min_map_height;
-    s_map_size->map_width = max_map_width + min_map_width;
-    return(s_map_size);
+    s_matrix_width->matrix_width = s_matrix_width->max_matrix_width + s_matrix_width->min_matrix_width;
+    return(s_matrix_width);
+}
+
+t_matrix_height    *get_matrix_height(float   **map_matrix, t_map *s_map)
+{
+    t_matrix_height  *s_matrix_height;
+    int x;
+    int y;
+
+    x = 0;
+    y = 0;
+    s_matrix_height = malloc(sizeof(float) * 3);
+    s_matrix_height->min_matrix_height = 0;
+    s_matrix_height->max_matrix_height = 0;
+
+    while (x < s_map->height * s_map->width)
+    {
+        y = 1;
+        while (y < 2)
+        {
+            if(map_matrix[x][y] < s_matrix_height->min_matrix_height)
+                s_matrix_height->min_matrix_height = map_matrix[x][y];
+            if(map_matrix[x][y] > s_matrix_height->max_matrix_height)
+                s_matrix_height->max_matrix_height = map_matrix[x][y];
+        }
+        x++;
+    }
+    s_matrix_height->matrix_height = s_matrix_height->max_matrix_height + s_matrix_height->min_matrix_height;
+    return(s_matrix_height);
 }
