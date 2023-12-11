@@ -6,7 +6,7 @@
 /*   By: pmelo-ca <pmelo-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 20:33:21 by pmelo-ca          #+#    #+#             */
-/*   Updated: 2023/12/11 15:24:44 by pmelo-ca         ###   ########.fr       */
+/*   Updated: 2023/12/11 15:30:36 by pmelo-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,7 @@ t_matrix_width    *get_matrix_width(float   **map_matrix, t_map *s_map)
     s_matrix_width->min_matrix_width = 0;
     s_matrix_width->max_matrix_width = 0;
 
-    while (x < s_map->width)
+    while (x < s_map->width * s_map->height)
     {
         y = 0;
         while (y < 1)
@@ -124,7 +124,7 @@ t_matrix_height    *get_matrix_height(float   **map_matrix, t_map *s_map)
     s_matrix_height->min_matrix_height = 0;
     s_matrix_height->max_matrix_height = 0;
 
-    while (x < s_map->height)
+    while (x < s_map->height * s_map->width)
     {
         y = 1;
         while (y < 2)
