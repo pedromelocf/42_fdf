@@ -6,7 +6,7 @@
 /*   By: pmelo-ca <pmelo-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 12:04:44 by pmelo-ca          #+#    #+#             */
-/*   Updated: 2023/11/21 00:58:57 by pmelo-ca         ###   ########.fr       */
+/*   Updated: 2023/12/11 15:11:58 by pmelo-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
 
 char	*ft_join_buf(char const *s1, char const *s2);
 char	*ft_strdup(const char *s);
-char	*ft_strchr(const char *s, int c);
+char	*ft_strchr_gnl(const char *s, int c);
 char	*get_next_line(int fd);
 char	*ft_strjoin(char const *s1, char const *s2);
 

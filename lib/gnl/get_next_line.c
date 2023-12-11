@@ -6,7 +6,7 @@
 /*   By: pmelo-ca <pmelo-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 12:04:19 by pmelo-ca          #+#    #+#             */
-/*   Updated: 2023/11/18 15:18:04 by pmelo-ca         ###   ########.fr       */
+/*   Updated: 2023/12/11 15:13:47 by pmelo-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ static char	*ft_read_fd(int fd, char *total_buffer)
 	if (buffer_read == NULL)
 		return (NULL);
 	bytes_read = 1;
-	while (!(ft_strchr(total_buffer, '\n')) && (bytes_read != 0))
+	while (!(ft_strchr_gnl(total_buffer, '\n')) && (bytes_read != 0))
 	{
 		bytes_read = read(fd, buffer_read, BUFFER_SIZE);
 		if (bytes_read <= 0)

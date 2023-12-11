@@ -69,7 +69,7 @@ CC = cc
 all: $(NAME)
 
 $(NAME): $(LIB_OBJ) $(GNL_OBJ) $(PRINTF_OBJ)
-	ar rcs $(NAME) $@
+	ar rcs $(NAME) $(LIB_OBJ) $(GNL_OBJ) $(PRINTF_OBJ)
 
 $(LIB_SRC_PATH)%.o: $(LIB_SRC_PATH)%.c $(LIB_INCLUDES)
 	$(CC) $(FLAGS) -c $< -o $@
