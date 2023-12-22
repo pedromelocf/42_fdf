@@ -14,7 +14,8 @@ FDF_SRCS = main.c \
 	map_read.c \
 	draw_pixels.c \
 	clean_data.c \
-	key_hook.c
+	key_hook.c \
+	convert_matrix.c
 
 #FDF BONUS
 FDF_BONUS_SRC_PATH =./fdf_utils_bonus/
