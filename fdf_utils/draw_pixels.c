@@ -6,7 +6,7 @@
 /*   By: pmelo-ca <pmelo-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 20:33:21 by pmelo-ca          #+#    #+#             */
-/*   Updated: 2023/12/22 20:01:38 by pmelo-ca         ###   ########.fr       */
+/*   Updated: 2023/12/23 13:47:06 by pmelo-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,14 @@ void draw_pixels(t_map *s_map, mlx_image_t *img)
 
     draw_background(img);
     map_matrix = get_map_matrix(s_map);
+    get_map_scale(s_map);
     converted_matrix = convert_matrix(s_map, map_matrix);
     while(s_map != NULL)
     {
         y = 0;
-        mlx_put_pixel(img, converted_matrix[x][y], converted_matrix[x][y + 1], 0xFFFFFF);
+        mlx_put_pixel(img, converted_matrix[x][y], converted_matrix[x][y + 1], DRAWING_COLOR);
+        if (x == 0)
+            bresenham_algo(img, converted_matrix, x, y);
         x++;
         s_map = s_map->next;
     }
@@ -44,11 +47,34 @@ void    draw_background(mlx_image_t *img)
     {
         while (x < WIDTH)
         {
-            mlx_put_pixel(img, x, y, 0x000ddd);
+            mlx_put_pixel(img, x, y, BACKGROUND_COLOR);
             x++;
         }
         x = 0;
         y++;
+    }
+    return;
+}
+
+void get_map_scale(t_map *s_map)
+{
+    if (s_map->width >= s_map->height)
+    {
+        if (s_map->width < 20)
+            s_map->scale = 30;
+        if (s_map->width >= 20 && s_map->width < 40)
+            s_map->scale = 15;
+        if (s_map->width >= 40)
+            s_map->scale = 2;
+    }
+    if (s_map->width < s_map->height)
+    {
+        if (s_map->height < 20)
+            s_map->scale = 30;
+        if (s_map->height >= 20 && s_map->height < 40)
+            s_map->scale = 15;
+        if (s_map->height >= 40)
+            s_map->scale = 2;
     }
     return;
 }
