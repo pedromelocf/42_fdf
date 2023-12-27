@@ -6,7 +6,7 @@
 /*   By: pmelo-ca <pmelo-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 16:19:56 by pmelo-ca          #+#    #+#             */
-/*   Updated: 2023/12/26 22:23:05 by pmelo-ca         ###   ########.fr       */
+/*   Updated: 2023/12/27 12:37:35 by pmelo-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,5 +84,6 @@ void	clean_split(char	**split_result);
 void	clean_matrix(float	**map_matrix);
 
 void	key_hook(mlx_key_data_t keydata, void* mlx);
+void	task_mlx(mlx_t* mlx, mlx_image_t* img);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: pmelo-ca <pmelo-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 12:38:59 by pmelo-ca          #+#    #+#             */
-/*   Updated: 2023/12/26 22:29:44 by pmelo-ca         ###   ########.fr       */
+/*   Updated: 2023/12/27 12:23:44 by pmelo-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ float	**convert_matrix(t_map *s_map, float **map_matrix)
 void get_map_scale(t_map *s_map)
 {
     if (s_map->height > 0 && s_map->height <= 10)
-		s_map->scale = 10;
+		s_map->scale = 1;
 	if (s_map->height > 10 && s_map->height <= 20)
 		s_map->scale = 10;
 	if (s_map->height > 20 && s_map->height <= 80)

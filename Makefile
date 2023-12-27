@@ -1,6 +1,7 @@
 #LIBFT
 LIBFT_DIR = ./lib
-LIBFT_OBJ = ./lib/libft/*.o ./lib/*.a
+LIBFT_PATH1 = ./lib/libft/*.o ./lib/libft/*.a
+LIBFT_PATH2 = ./lib/*.a
 GNL_OBJ = ./lib/gnl/*.o
 PRINTF_OBJ = ./lib/printf/*.o
 
@@ -17,7 +18,8 @@ FDF_SRCS = main.c \
 	key_hook.c \
 	convert_matrix.c \
 	draw_line.c \
-	get_matrix_dimensions.c
+	get_matrix_dimensions.c \
+	task_mlx.c
 
 #FDF BONUS
 FDF_BONUS_SRC_PATH =./fdf_utils_bonus/
@@ -31,7 +33,7 @@ LIB_MLX_FLAGS = -Iinclude -ldl -lglfw -pthread -lm
 # LIBMLX_SRC_PATH = ./MLX/src/*.c
 # LIBMLX_INCLUDES = ./MLX/include/*.h
 # LIBMLX_OBJ = $(addprefix $(LIBMLX_SRC_PATH), $(LIBMLX_SRCS:.c=.o))
-LIB_MLX_SRCS = ./MLX42/build/libmlx42.a
+LIB_MLX_SRCS = MLX42/build/libmlx42.a
 
 ifdef WITH_BONUS
 	FDF_OBJ = $(FDF_BONUS_OBJ)
@@ -44,14 +46,15 @@ MAKEFLAG += make --no-print-directory
 all: libft $(NAME)
 
 $(NAME): $(FDF_OBJ)
-	cp $(LIBFT_DIR)/libft.a $(NAME)
-	ar rcs $(NAME) $(FDF_OBJ) $(LIBFT_OBJ) $(GNL_OBJ) $(PRINTF_OBJ)
+	cp $(LIBFT_DIR)/libftprintf.a $(NAME)
+	ar rcs $(NAME) $(FDF_OBJ)
+	$(CC) $(NAME) $(LIB_MLX_SRCS) $(LIB_MLX_FLAGS)
 
 $(FDF_SRC_PATH)%.o: $(FDF_SRC_PATH)%.c $(FDF_INCLUDES)
 	$(CC) $(FLAGS) -c $< -o $@
 
 clean :
-	rm -f $(FDF_OBJ) $(FDF_BONUS_OBJ) $(LIBFT_OBJ) $(GNL_OBJ) $(PRINTF_OBJ)
+	rm -f $(FDF_OBJ) $(FDF_BONUS_OBJ) $(LIBFT_PATH1) $(LIBFT_PATH2) $(GNL_OBJ) $(PRINTF_OBJ)
 
 fclean : clean
 	rm -f $(NAME)
