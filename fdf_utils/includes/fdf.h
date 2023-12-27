@@ -6,7 +6,7 @@
 /*   By: pmelo-ca <pmelo-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 16:19:56 by pmelo-ca          #+#    #+#             */
-/*   Updated: 2023/12/23 13:47:02 by pmelo-ca         ###   ########.fr       */
+/*   Updated: 2023/12/26 22:23:05 by pmelo-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ void	bresenham_algo(mlx_image_t *img, float **converted_matrix, int x, int y);
 
 void	clean_data(t_map	*s_map);
 void	clean_split(char	**split_result);
-void	clean_map_matrix(float	**map_matrix);
+void	clean_matrix(float	**map_matrix);
 
 void	key_hook(mlx_key_data_t keydata, void* mlx);
 

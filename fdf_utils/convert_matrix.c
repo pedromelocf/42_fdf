@@ -6,7 +6,7 @@
 /*   By: pmelo-ca <pmelo-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 12:38:59 by pmelo-ca          #+#    #+#             */
-/*   Updated: 2023/12/23 13:48:09 by pmelo-ca         ###   ########.fr       */
+/*   Updated: 2023/12/26 22:29:44 by pmelo-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,28 @@ float	**convert_matrix(t_map *s_map, float **map_matrix)
 	t_matrix_dimensions	*s_matrix_dimensions;
 
 	s_matrix_dimensions = get_matrix_dimensions(map_matrix, s_map);
+	get_map_scale(s_map);
 	converted_matrix = scale_dimension_matrix(s_map, map_matrix, s_matrix_dimensions);
 	return (converted_matrix);
+}
+
+void get_map_scale(t_map *s_map)
+{
+    if (s_map->height > 0 && s_map->height <= 10)
+		s_map->scale = 10;
+	if (s_map->height > 10 && s_map->height <= 20)
+		s_map->scale = 10;
+	if (s_map->height > 20 && s_map->height <= 80)
+		s_map->scale = 12;
+	if (s_map->height > 80 && s_map->height <= 150)
+		s_map->scale = 5;
+	if (s_map->height > 150 && s_map->height <= 200)
+		s_map->scale = 2.5;
+	if (s_map->height > 200 && s_map->height <= 500)
+		s_map->scale = 1.5;
+	if (s_map->height > 500)
+		s_map->scale = 0.7;
+    return;
 }
 
 float **scale_dimension_matrix(t_map *s_map, float **map_matrix, t_matrix_dimensions *s_matrix_dimensions)
@@ -41,7 +61,8 @@ float **scale_dimension_matrix(t_map *s_map, float **map_matrix, t_matrix_dimens
         x++;
         s_map = s_map->next;
 	}
-	clean_map_matrix(map_matrix);
+	converted_matrix[x] = NULL;
+	clean_matrix(map_matrix);
 	free(s_matrix_dimensions);
 	return(converted_matrix);
 }
