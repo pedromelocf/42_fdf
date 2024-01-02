@@ -6,7 +6,7 @@
 /*   By: pmelo-ca <pmelo-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 20:33:21 by pmelo-ca          #+#    #+#             */
-/*   Updated: 2024/01/02 12:24:05 by pmelo-ca         ###   ########.fr       */
+/*   Updated: 2024/01/02 14:30:38 by pmelo-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,10 +72,10 @@ float	**get_map_matrix(t_map *s_map)
 		y = 0;
 		map_matrix[x] = malloc(sizeof(float) * 2);
 		map_matrix[x][y] = (s_map->s_coordinate->x - s_map->s_coordinate->y)
-			* 0.707106781;
+			* cos(COS_30);
 		y++;
-		map_matrix[x][y] = ((s_map->s_coordinate->x + s_map->s_coordinate->y)
-				* 0.40824829) - 0.816496581 * s_map->s_coordinate->z;
+		map_matrix[x][y] = (s_map->s_coordinate->x + s_map->s_coordinate->y)
+				* sin(SIN_30) - 0.3 * s_map->s_coordinate->z;
 		x++;
 		s_map = s_map->next;
 	}

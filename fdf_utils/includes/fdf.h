@@ -6,7 +6,7 @@
 /*   By: pmelo-ca <pmelo-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 16:19:56 by pmelo-ca          #+#    #+#             */
-/*   Updated: 2024/01/02 12:20:31 by pmelo-ca         ###   ########.fr       */
+/*   Updated: 2024/01/02 14:59:35 by pmelo-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,14 @@
 # include "../../lib/gnl/get_next_line.h"
 # include "../../lib/libft.h"
 # include "../../lib/printf/ft_printf.h"
+# include <math.h>
 
 # define WIDTH 1300
 # define HEIGHT 900
 # define BACKGROUND_COLOR 0x000ddd
 # define DRAWING_COLOR 0xFFFFFF
+# define COS_30 0.86602540378
+# define SIN_30 0.5
 
 typedef struct s_coordinate
 {
@@ -66,7 +69,8 @@ float				**get_map_matrix(t_map *s_map);
 t_matrix_width		*get_matrix_width(float **map_matrix, t_map *s_map);
 t_matrix_height		*get_matrix_height(float **map_matrix, t_map *s_map);
 t_matrix_dimensions	*get_matrix_dimensions(float **map_matrix, t_map *s_map);
-void				get_map_scale(t_map *s_map);
+void				get_map_scale(t_map *s_map,
+						t_matrix_dimensions *s_matrix_dimensions);
 float				**convert_matrix(t_map *s_map, float **map_matrix);
 float				**scale_dimension_matrix(t_map *s_map, float **map_matrix,
 						t_matrix_dimensions *s_matrix_dimensions);
