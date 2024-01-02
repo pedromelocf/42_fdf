@@ -6,18 +6,18 @@
 /*   By: pmelo-ca <pmelo-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 03:45:56 by pmelo-ca          #+#    #+#             */
-/*   Updated: 2023/11/22 17:08:20 by pmelo-ca         ###   ########.fr       */
+/*   Updated: 2024/01/02 12:19:49 by pmelo-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./includes/fdf.h"
 
-int		check_map_format(const char *argv)
+int	check_map_format(const char *argv)
 {
-	int map_name_len;
-	const char *format;
-	int format_len;
-	int start_position;
+	int			map_name_len;
+	const char	*format;
+	int			format_len;
+	int			start_position;
 
 	map_name_len = ft_strlen(argv);
 	format = ".fdf";

@@ -6,7 +6,7 @@
 /*   By: pmelo-ca <pmelo-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 18:06:23 by pmelo-ca          #+#    #+#             */
-/*   Updated: 2023/11/29 13:25:46 by pmelo-ca         ###   ########.fr       */
+/*   Updated: 2024/01/02 12:20:56 by pmelo-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 t_map	*map_read(const char *argv)
 {
-	t_map			*s_temp;
-	char			*line;
-	int				fd;
-	int				y;
+	t_map	*s_temp;
+	char	*line;
+	int		fd;
+	int		y;
 
 	fd = open(argv, O_RDONLY);
 	y = 0;
@@ -25,7 +25,7 @@ t_map	*map_read(const char *argv)
 	if (fd == -1)
 	{
 		perror("Error opening file");
-		return(NULL);
+		return (NULL);
 	}
 	while ((line = get_next_line(fd)) != NULL)
 	{
@@ -54,7 +54,7 @@ t_map	*new_list(char *line, int y)
 	}
 	s_list->width = x;
 	clean_split(split_result);
-	return(s_list);
+	return (s_list);
 }
 
 t_map	*insert_node(t_map *head, t_map *s_list)
@@ -63,7 +63,7 @@ t_map	*insert_node(t_map *head, t_map *s_list)
 
 	current = head;
 	if (!s_list)
-		return(head);
+		return (head);
 	if (head == NULL)
 	{
 		head = s_list;
@@ -87,14 +87,14 @@ t_map	*new_node(int x, int y, int z)
 	if (!node)
 		return (NULL);
 	node->s_coordinate = malloc(sizeof(t_coordinates));
-	if(!node->s_coordinate)
+	if (!node->s_coordinate)
 	{
 		free(node);
-		return(NULL);
+		return (NULL);
 	}
 	node->s_coordinate->x = x;
 	node->s_coordinate->y = y;
 	node->s_coordinate->z = z;
 	node->next = NULL;
-	return(node);
+	return (node);
 }

@@ -6,13 +6,13 @@
 /*   By: pmelo-ca <pmelo-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 17:06:24 by pmelo-ca          #+#    #+#             */
-/*   Updated: 2023/12/26 22:24:11 by pmelo-ca         ###   ########.fr       */
+/*   Updated: 2024/01/02 12:19:51 by pmelo-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./includes/fdf.h"
 
-void	clean_data(t_map	*s_map)
+void	clean_data(t_map *s_map)
 {
 	t_map	*remove;
 
@@ -20,7 +20,7 @@ void	clean_data(t_map	*s_map)
 	{
 		remove = s_map;
 		s_map = s_map->next;
-		if	(remove->s_coordinate != NULL)
+		if (remove->s_coordinate != NULL)
 		{
 			free(remove->s_coordinate);
 			remove->s_coordinate = NULL;
@@ -29,22 +29,22 @@ void	clean_data(t_map	*s_map)
 	}
 }
 
-void	clean_split(char	**split_result)
+void	clean_split(char **split_result)
 {
-	int x;
+	int	x;
 
 	x = 0;
-	while(split_result[x])
+	while (split_result[x])
 		free(split_result[x++]);
 	free(split_result);
 }
 
-void	clean_matrix(float	**map_matrix)
+void	clean_matrix(float **map_matrix)
 {
-	int x;
+	int	x;
 
 	x = 0;
-	while(map_matrix[x] != NULL)
+	while (map_matrix[x] != NULL)
 		free(map_matrix[x++]);
 	free(map_matrix);
 }
