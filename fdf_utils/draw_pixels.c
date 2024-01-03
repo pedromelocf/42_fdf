@@ -6,7 +6,7 @@
 /*   By: pmelo-ca <pmelo-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 20:33:21 by pmelo-ca          #+#    #+#             */
-/*   Updated: 2024/01/03 12:09:34 by pmelo-ca         ###   ########.fr       */
+/*   Updated: 2024/01/03 15:47:01 by pmelo-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,19 +18,22 @@ void	draw_pixels(t_map *s_map, mlx_image_t *img)
 	float	**converted_matrix;
 	int		x;
 	int		y;
+	int		width;
+	int		height;
 
+	width = s_map->width;
+	height = s_map->height;
 	x = 0;
-	y = 0;
 	draw_background(img);
 	map_matrix = get_map_matrix(s_map);
 	converted_matrix = convert_matrix(s_map, map_matrix);
 	while (s_map != NULL)
 	{
 		y = 0;
-		mlx_put_pixel(img, converted_matrix[x][y], converted_matrix[x][y + 1],
-		 		DRAWING_COLOR);
-		if (x == 0)
+		if (((x + 1) % width) != 0)
 			draw_line(img, converted_matrix, x, y);
+		// if (((x + 1) % height) != 0)
+		// 	draw_line(img, converted_matrix, x, y);
 		x++;
 		s_map = s_map->next;
 	}
@@ -75,7 +78,7 @@ float	**get_map_matrix(t_map *s_map)
 			* cos(COS_30);
 		y++;
 		map_matrix[x][y] = (s_map->s_coordinate->x + s_map->s_coordinate->y)
-				* sin(SIN_30) - 0.3 * s_map->s_coordinate->z;
+			* sin(SIN_30) - 0.3 * s_map->s_coordinate->z;
 		x++;
 		s_map = s_map->next;
 	}
