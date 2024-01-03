@@ -6,7 +6,7 @@
 /*   By: pmelo-ca <pmelo-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 20:33:21 by pmelo-ca          #+#    #+#             */
-/*   Updated: 2024/01/02 14:30:38 by pmelo-ca         ###   ########.fr       */
+/*   Updated: 2024/01/03 12:09:34 by pmelo-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,9 @@ void	draw_pixels(t_map *s_map, mlx_image_t *img)
 	{
 		y = 0;
 		mlx_put_pixel(img, converted_matrix[x][y], converted_matrix[x][y + 1],
-				DRAWING_COLOR);
+		 		DRAWING_COLOR);
 		if (x == 0)
-			bresenham_algo(img, converted_matrix, x, y);
+			draw_line(img, converted_matrix, x, y);
 		x++;
 		s_map = s_map->next;
 	}

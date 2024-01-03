@@ -6,7 +6,7 @@
 /*   By: pmelo-ca <pmelo-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 12:38:59 by pmelo-ca          #+#    #+#             */
-/*   Updated: 2024/01/02 14:54:56 by pmelo-ca         ###   ########.fr       */
+/*   Updated: 2024/01/03 10:52:17 by pmelo-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,34 +18,36 @@ float	**convert_matrix(t_map *s_map, float **map_matrix)
 	t_matrix_dimensions	*s_matrix_dimensions;
 
 	s_matrix_dimensions = get_matrix_dimensions(map_matrix, s_map);
-	get_map_scale(s_map, s_matrix_dimensions);
+	get_map_scale(s_map);
 	converted_matrix = scale_dimension_matrix(s_map, map_matrix,
 			s_matrix_dimensions);
 	return (converted_matrix);
 }
 
-void	get_map_scale(t_map *s_map, t_matrix_dimensions *s_matrix_dimensions)
+void	get_map_scale(t_map *s_map)
 {
 	float	bigger;
 
-	if (s_matrix_dimensions->matrix_height > s_matrix_dimensions->matrix_width)
-		bigger = s_matrix_dimensions->matrix_height;
+	if (s_map->height > s_map->width)
+		bigger = s_map->height;
 	else
-		bigger = s_matrix_dimensions->matrix_width;
+		bigger = s_map->width;
 	if (bigger > 0 && bigger <= 10)
-		s_map->scale = 20;
+		s_map->scale = 40;
 	if (bigger > 10 && bigger <= 20)
-		s_map->scale = 30;
-	if (bigger > 20 && bigger <= 80)
-		s_map->scale = 20;
+		s_map->scale = 35;
+	if (bigger > 20 && bigger < 50)
+		s_map->scale = 25;
+	if (bigger >= 50 && bigger <= 80)
+		s_map->scale = 10;
 	if (bigger > 80 && bigger <= 150)
 		s_map->scale = 5;
 	if (bigger > 150 && bigger <= 200)
-		s_map->scale = 2.5;
+		s_map->scale = 4;
 	if (bigger > 200 && bigger <= 500)
 		s_map->scale = 1.5;
 	if (bigger > 500)
-		s_map->scale = 0.7;
+		s_map->scale = 1;
 	return ;
 }
 

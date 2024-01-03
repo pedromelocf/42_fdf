@@ -19,7 +19,8 @@ FDF_SRCS = main.c \
 	convert_matrix.c \
 	draw_line.c \
 	get_matrix_dimensions.c \
-	task_mlx.c
+	task_mlx.c \
+	utils.c
 
 #FDF BONUS
 FDF_BONUS_SRC_PATH =./fdf_utils_bonus/

@@ -6,44 +6,54 @@
 /*   By: pmelo-ca <pmelo-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 14:52:06 by pmelo-ca          #+#    #+#             */
-/*   Updated: 2024/01/02 12:22:08 by pmelo-ca         ###   ########.fr       */
+/*   Updated: 2024/01/03 12:28:25 by pmelo-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./includes/fdf.h"
 
-void	bresenham_algo(mlx_image_t *img, float **converted_matrix, int x, int y)
-{
-	float	dx;
-	float	dy;
-	float	p;
-	float	z;
-	float	zx;
+static void	draw_vertical_line(mlx_image_t *img, float **converted_matrix,
+				int x, int y);
 
-	dx = converted_matrix[x + 1][y] - converted_matrix[x + 1][y];
-	dy = converted_matrix[x + 1][y + 1] - converted_matrix[x][y + 1];
-	zx = converted_matrix[x][y];
-	z = converted_matrix[x][y + 1];
-	p = 2 * dy - dx;
-	while (zx < converted_matrix[x + 1][y])
+void	draw_line(mlx_image_t *img, float **converted_matrix, int x, int y)
+{
+	t_data_draw_line	*line_data;
+
+	line_data = new_line_data(converted_matrix, x, y);
+	if (line_data->dx == 0)
+		draw_vertical_line(img, converted_matrix, x, y);
+	else if (line_data->dy == 0)
+		draw_vertical_line(img, converted_matrix, x, y);
+	else
 	{
-		if (p >= 0)
-		{
-			mlx_put_pixel(img, zx, z, 0xFFFFFF);
-			z += 1;
-			p = p + 2 * dy - 2 * dx;
-		}
-		if (p < 0)
-		{
-			mlx_put_pixel(img, zx, z, 0xFFFFFF);
-			p = p + 2 * dy;
-		}
-		zx = zx + 1;
+		if (line_data->dx >= line_data->dy)
+			draw_vertical_line(img, converted_matrix, x, y);
+		else
+			draw_vertical_line(img, converted_matrix, x, y);
 	}
-	return ;
 }
 
-// void	draw_lines(float **map_matrix, mlx_image_t *img, t_matrix_width  *s_matrix_width, t_matrix_height *s_matrix_height)
-// {
-
-// }
+static void	draw_vertical_line(mlx_image_t *img, float **converted_matrix,
+		int x, int y)
+{
+	if (converted_matrix[x + 1][y + 1] > converted_matrix[x][y + 1])
+	{
+		while ((int)converted_matrix[x][y + 1] != (int)converted_matrix[x + 1][y
+			+ 1])
+		{
+			y++;
+			mlx_put_pixel(img, (int)converted_matrix[x][y],
+					(int)converted_matrix[x][y + 1], DRAWING_COLOR);
+		}
+	}
+	else
+	{
+		while ((int)converted_matrix[x][y + 1] != (int)converted_matrix[x + 1][y
+			+ 1])
+		{
+			y--;
+			mlx_put_pixel(img, (int)converted_matrix[x][y],
+					(int)converted_matrix[x][y + 1], DRAWING_COLOR);
+		}
+	}
+}
