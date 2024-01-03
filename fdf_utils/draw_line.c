@@ -6,7 +6,7 @@
 /*   By: pmelo-ca <pmelo-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 14:52:06 by pmelo-ca          #+#    #+#             */
-/*   Updated: 2024/01/03 14:05:54 by pmelo-ca         ###   ########.fr       */
+/*   Updated: 2024/01/03 14:32:29 by pmelo-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ static void	draw_horizontal_line(mlx_image_t *img, float **converted_matrix,
 {
 	if (converted_matrix[x + 1][y] > converted_matrix[x][y])
 	{
-		while ((int)converted_matrix[x][y] != converted_matrix[x + 1][y])
+		while ((int)converted_matrix[x][y] != (int)converted_matrix[x + 1][y])
 		{
 			x++;
 			mlx_put_pixel(img, (int)converted_matrix[x][y],
@@ -80,7 +80,7 @@ static void	draw_horizontal_line(mlx_image_t *img, float **converted_matrix,
 	}
 	else
 	{
-		while ((int)converted_matrix[x][y] != converted_matrix[x + 1][y])
+		while ((int)converted_matrix[x][y] != (int)converted_matrix[x + 1][y])
 		{
 			x--;
 			mlx_put_pixel(img, (int)converted_matrix[x][y],
