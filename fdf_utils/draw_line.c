@@ -6,7 +6,7 @@
 /*   By: pmelo-ca <pmelo-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 14:52:06 by pmelo-ca          #+#    #+#             */
-/*   Updated: 2024/01/04 16:45:36 by pmelo-ca         ###   ########.fr       */
+/*   Updated: 2024/01/04 18:37:58 by pmelo-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ void	draw_line(mlx_image_t *img, float **converted_matrix, int x, int y)
 		else
 			draw_line_larger_y_axis(img, converted_matrix, x, y, line_data);
 	}
+	free(line_data);
 }
 
 static void	draw_vertical_line(mlx_image_t *img, float **converted_matrix,
