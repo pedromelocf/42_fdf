@@ -6,7 +6,7 @@
 /*   By: pmelo-ca <pmelo-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 14:52:06 by pmelo-ca          #+#    #+#             */
-/*   Updated: 2024/01/03 14:32:29 by pmelo-ca         ###   ########.fr       */
+/*   Updated: 2024/01/04 16:45:36 by pmelo-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,14 +44,14 @@ void	draw_line(mlx_image_t *img, float **converted_matrix, int x, int y)
 static void	draw_vertical_line(mlx_image_t *img, float **converted_matrix,
 		int x, int y)
 {
-	if (converted_matrix[x + 1][y + 1] > converted_matrix[x][y + 1])
+	if ((int)converted_matrix[x + 1][y + 1] > (int)converted_matrix[x][y + 1])
 	{
 		while ((int)converted_matrix[x][y + 1] != (int)converted_matrix[x + 1][y
 			+ 1])
 		{
-			y++;
 			mlx_put_pixel(img, (int)converted_matrix[x][y],
 					(int)converted_matrix[x][y + 1], DRAWING_COLOR);
+			y++;
 		}
 	}
 	else
@@ -59,9 +59,9 @@ static void	draw_vertical_line(mlx_image_t *img, float **converted_matrix,
 		while ((int)converted_matrix[x][y + 1] != (int)converted_matrix[x + 1][y
 			+ 1])
 		{
-			y--;
 			mlx_put_pixel(img, (int)converted_matrix[x][y],
 					(int)converted_matrix[x][y + 1], DRAWING_COLOR);
+			y--;
 		}
 	}
 }
@@ -69,22 +69,22 @@ static void	draw_vertical_line(mlx_image_t *img, float **converted_matrix,
 static void	draw_horizontal_line(mlx_image_t *img, float **converted_matrix,
 		int x, int y)
 {
-	if (converted_matrix[x + 1][y] > converted_matrix[x][y])
+	if ((int)converted_matrix[x + 1][y] > (int)converted_matrix[x][y])
 	{
 		while ((int)converted_matrix[x][y] != (int)converted_matrix[x + 1][y])
 		{
-			x++;
 			mlx_put_pixel(img, (int)converted_matrix[x][y],
 					(int)converted_matrix[x][y + 1], DRAWING_COLOR);
+			x++;
 		}
 	}
 	else
 	{
 		while ((int)converted_matrix[x][y] != (int)converted_matrix[x + 1][y])
 		{
-			x--;
 			mlx_put_pixel(img, (int)converted_matrix[x][y],
 					(int)converted_matrix[x][y + 1], DRAWING_COLOR);
+			x--;
 		}
 	}
 }
