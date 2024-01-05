@@ -6,7 +6,7 @@
 /*   By: pmelo-ca <pmelo-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 20:33:21 by pmelo-ca          #+#    #+#             */
-/*   Updated: 2024/01/05 12:54:29 by pmelo-ca         ###   ########.fr       */
+/*   Updated: 2024/01/05 14:25:53 by pmelo-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,10 @@ void	draw_pixels(t_map *s_map, mlx_image_t *img)
 	converted_matrix = convert_matrix(s_map, map_matrix);
 	while (s_map != NULL)
 	{
-		if (((x + 1) % width) != '0')
+		if (((x + 1) % width) != 0)
 			draw_line(img, converted_matrix, x, x + 1);
-		if (((x + 1) % height != '0'))
-			draw_line(img, converted_matrix, x, x + width);
+		// if (x < (height - 1 )* width)
+		// 	draw_line(img, cp_converted_matrix, x, x + width);
 		x++;
 		s_map = s_map->next;
 	}
