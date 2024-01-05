@@ -10,18 +10,17 @@ FDF_SRC_PATH = ./fdf_utils/
 FDF_INCLUDES = ./fdf_utils/includes/fdf.h
 FDF_OBJ = $(addprefix $(FDF_SRC_PATH), $(FDF_SRCS:.c=.o))
 
-FDF_SRCS = main.c \
-	check_map_format.c \
-	map_read.c \
-	render.c \
+FDF_SRCS = check_map_format.c \
 	clean_data.c \
-	key_hook.c \
 	convert_matrix.c \
 	draw_line.c \
 	get_matrix_dimensions.c \
+	key_hook.c \
+	main.c \
+	map_read.c \
+	render.c \
 	task_mlx.c \
 	utils.c
-
 
 #MLX42
 LIB_MLX_FLAGS = -Iinclude -ldl -lglfw -pthread -lm
