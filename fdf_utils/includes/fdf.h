@@ -6,7 +6,7 @@
 /*   By: pmelo-ca <pmelo-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 16:19:56 by pmelo-ca          #+#    #+#             */
-/*   Updated: 2024/01/05 12:07:54 by pmelo-ca         ###   ########.fr       */
+/*   Updated: 2024/01/05 14:56:55 by pmelo-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 
 # define WIDTH 1300
 # define HEIGHT 900
-# define BACKGROUND_COLOR 0x000ddd
+# define BACKGROUND_COLOR 0x000DDD
 # define DRAWING_COLOR 0xFFFFFF
 # define COS_30 0.86602540378
 # define SIN_30 0.5
