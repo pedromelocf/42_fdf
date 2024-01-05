@@ -6,7 +6,7 @@
 /*   By: pmelo-ca <pmelo-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 16:19:56 by pmelo-ca          #+#    #+#             */
-/*   Updated: 2024/01/03 12:27:09 by pmelo-ca         ###   ########.fr       */
+/*   Updated: 2024/01/05 12:07:54 by pmelo-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,11 +90,11 @@ t_map				*insert_node(t_map *head, t_map *s_list);
 
 void				draw_pixels(t_map *s_map, mlx_image_t *img);
 void				draw_background(mlx_image_t *img);
-void				draw_line(mlx_image_t *img, float **converted_matrix, int x,
-						int y);
+void				draw_line(mlx_image_t *img, float **converted_matrix,
+						int start, int end);
 t_data_draw_line	*new_line_data(float **converted_matrix,
-								int x,
-								int y);
+								int start,
+								int end);
 int					ft_abs(int n);
 
 void				clean_data(t_map *s_map);
