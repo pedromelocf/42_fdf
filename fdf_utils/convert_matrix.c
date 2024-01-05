@@ -6,7 +6,7 @@
 /*   By: pmelo-ca <pmelo-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 12:38:59 by pmelo-ca          #+#    #+#             */
-/*   Updated: 2024/01/05 15:26:05 by pmelo-ca         ###   ########.fr       */
+/*   Updated: 2024/01/05 15:38:52 by pmelo-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,10 +55,11 @@ float	**scale_dimension_matrix(t_map *s_map, float **map_matrix,
 	{
 		y = 0;
 		converted_matrix[x] = malloc(sizeof(float) * 2);
-		converted_matrix[x][y] = (map_matrix[x][y] * scale) + (WIDTH / 2)
+		converted_matrix[x][y] = (map_matrix[x][y] * scale) + (SCREEN_WIDTH / 2)
 			- (s_matrix_dimensions->matrix_width / 2 * scale);
-		converted_matrix[x][y + 1] = (map_matrix[x][y + 1] * scale) + (HEIGHT
-				/ 2) - (s_matrix_dimensions->matrix_height / 2 * scale);
+		converted_matrix[x][y + 1] = (map_matrix[x][y + 1] * scale)
+			+ (SCREEN_HEIGHT / 2) - (s_matrix_dimensions->matrix_height / 2
+				* scale);
 		x++;
 		s_map = s_map->next;
 	}

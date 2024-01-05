@@ -6,7 +6,7 @@
 /*   By: pmelo-ca <pmelo-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 11:50:13 by pmelo-ca          #+#    #+#             */
-/*   Updated: 2024/01/05 15:35:04 by pmelo-ca         ###   ########.fr       */
+/*   Updated: 2024/01/05 15:39:23 by pmelo-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,9 +49,9 @@ void	draw_background(mlx_image_t *img)
 
 	x = 0;
 	y = 0;
-	while (y < HEIGHT)
+	while (y < SCREEN_HEIGHT)
 	{
-		while (x < WIDTH)
+		while (x < SCREEN_WIDTH)
 		{
 			mlx_put_pixel(img, x, y, BACKGROUND_COLOR);
 			x++;
