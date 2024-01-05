@@ -6,7 +6,7 @@
 /*   By: pmelo-ca <pmelo-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 16:11:00 by pmelo-ca          #+#    #+#             */
-/*   Updated: 2024/01/02 12:19:59 by pmelo-ca         ###   ########.fr       */
+/*   Updated: 2024/01/05 15:21:16 by pmelo-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	main(int argc, char **argv)
 	mlx = mlx_init(WIDTH, HEIGHT, "FDF", true);
 	img = mlx_new_image(mlx, WIDTH, HEIGHT);
 	mlx_image_to_window(mlx, img, 0, 0);
-	draw_pixels(s_map, img);
+	render(s_map, img);
 	task_mlx(mlx, img);
 	clean_data(s_map);
 	return (1);

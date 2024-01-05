@@ -13,7 +13,7 @@ FDF_OBJ = $(addprefix $(FDF_SRC_PATH), $(FDF_SRCS:.c=.o))
 FDF_SRCS = main.c \
 	check_map_format.c \
 	map_read.c \
-	draw_pixels.c \
+	render.c \
 	clean_data.c \
 	key_hook.c \
 	convert_matrix.c \

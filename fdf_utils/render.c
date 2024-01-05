@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   draw_pixels.c                                      :+:      :+:    :+:   */
+/*   render.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pmelo-ca <pmelo-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 20:33:21 by pmelo-ca          #+#    #+#             */
-/*   Updated: 2024/01/05 14:25:53 by pmelo-ca         ###   ########.fr       */
+/*   Updated: 2024/01/05 15:21:35 by pmelo-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./includes/fdf.h"
 
-void	draw_pixels(t_map *s_map, mlx_image_t *img)
+void	render(t_map *s_map, mlx_image_t *img)
 {
 	float	**map_matrix;
 	float	**converted_matrix;
@@ -30,8 +30,8 @@ void	draw_pixels(t_map *s_map, mlx_image_t *img)
 	{
 		if (((x + 1) % width) != 0)
 			draw_line(img, converted_matrix, x, x + 1);
-		// if (x < (height - 1 )* width)
-		// 	draw_line(img, cp_converted_matrix, x, x + width);
+		if (x < (height - 1) * width)
+			draw_line(img, converted_matrix, x, x + width);
 		x++;
 		s_map = s_map->next;
 	}
