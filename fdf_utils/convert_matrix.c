@@ -6,23 +6,11 @@
 /*   By: pmelo-ca <pmelo-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 12:38:59 by pmelo-ca          #+#    #+#             */
-/*   Updated: 2024/01/04 22:17:36 by pmelo-ca         ###   ########.fr       */
+/*   Updated: 2024/01/05 15:26:05 by pmelo-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./includes/fdf.h"
-
-float	**convert_matrix(t_map *s_map, float **map_matrix)
-{
-	float				**converted_matrix;
-	t_matrix_dimensions	*s_matrix_dimensions;
-
-	s_matrix_dimensions = get_matrix_dimensions(map_matrix, s_map);
-	get_map_scale(s_map);
-	converted_matrix = scale_dimension_matrix(s_map, map_matrix,
-			s_matrix_dimensions);
-	return (converted_matrix);
-}
 
 void	get_map_scale(t_map *s_map)
 {

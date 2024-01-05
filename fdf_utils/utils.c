@@ -6,7 +6,7 @@
 /*   By: pmelo-ca <pmelo-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 11:50:13 by pmelo-ca          #+#    #+#             */
-/*   Updated: 2024/01/05 12:04:57 by pmelo-ca         ###   ########.fr       */
+/*   Updated: 2024/01/05 15:35:04 by pmelo-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,4 +40,24 @@ t_data_draw_line	*new_line_data(float **converted_matrix,
 	else
 		line_data->inc_y = -1;
 	return (line_data);
+}
+
+void	draw_background(mlx_image_t *img)
+{
+	int	x;
+	int	y;
+
+	x = 0;
+	y = 0;
+	while (y < HEIGHT)
+	{
+		while (x < WIDTH)
+		{
+			mlx_put_pixel(img, x, y, BACKGROUND_COLOR);
+			x++;
+		}
+		x = 0;
+		y++;
+	}
+	return ;
 }
