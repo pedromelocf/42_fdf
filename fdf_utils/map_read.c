@@ -6,7 +6,7 @@
 /*   By: pmelo-ca <pmelo-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 18:06:23 by pmelo-ca          #+#    #+#             */
-/*   Updated: 2024/01/02 12:20:56 by pmelo-ca         ###   ########.fr       */
+/*   Updated: 2024/01/05 15:11:05 by pmelo-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,11 @@ t_map	*map_read(const char *argv)
 		perror("Error opening file");
 		return (NULL);
 	}
-	while ((line = get_next_line(fd)) != NULL)
+	while (1)
 	{
+		line = get_next_line(fd);
+		if (!line)
+			break ;
 		s_temp = insert_node(s_temp, new_list(line, y));
 		y++;
 		free(line);
