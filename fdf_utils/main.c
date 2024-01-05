@@ -6,7 +6,7 @@
 /*   By: pmelo-ca <pmelo-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 16:11:00 by pmelo-ca          #+#    #+#             */
-/*   Updated: 2024/01/05 15:38:25 by pmelo-ca         ###   ########.fr       */
+/*   Updated: 2024/01/05 15:46:35 by pmelo-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	main(int argc, char **argv)
 	mlx_image_t	*img;
 
 	if (argc != 2 || !(check_map_format(argv[1])))
-		return (printf("%s", "error"));
+		return (ft_printf("%s", "Invalid map name"));
 	s_map = map_read(argv[1]);
 	mlx = mlx_init(SCREEN_WIDTH, SCREEN_HEIGHT, "FDF", true);
 	img = mlx_new_image(mlx, SCREEN_WIDTH, SCREEN_HEIGHT);

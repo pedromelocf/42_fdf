@@ -6,7 +6,7 @@
 /*   By: pmelo-ca <pmelo-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 20:33:21 by pmelo-ca          #+#    #+#             */
-/*   Updated: 2024/01/05 15:34:53 by pmelo-ca         ###   ########.fr       */
+/*   Updated: 2024/01/05 15:44:09 by pmelo-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ void	render(t_map *s_map, mlx_image_t *img)
 	map_matrix = get_map_matrix(s_map);
 	converted_matrix = convert_matrix(s_map, map_matrix);
 	draw_map(s_map, img, converted_matrix);
-	clean_matrix(converted_matrix);
 	return ;
 }
 
@@ -80,4 +79,5 @@ void	draw_map(t_map *s_map, mlx_image_t *img, float **converted_matrix)
 		x++;
 		s_map = s_map->next;
 	}
+	clean_matrix(converted_matrix);
 }
