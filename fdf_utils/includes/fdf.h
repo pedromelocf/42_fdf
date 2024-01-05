@@ -6,7 +6,7 @@
 /*   By: pmelo-ca <pmelo-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 16:19:56 by pmelo-ca          #+#    #+#             */
-/*   Updated: 2024/01/05 14:56:55 by pmelo-ca         ###   ########.fr       */
+/*   Updated: 2024/01/05 15:01:45 by pmelo-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,8 +93,7 @@ void				draw_background(mlx_image_t *img);
 void				draw_line(mlx_image_t *img, float **converted_matrix,
 						int start, int end);
 t_data_draw_line	*new_line_data(float **converted_matrix,
-								int start,
-								int end);
+						int start, int end);
 int					ft_abs(int n);
 
 void				clean_data(t_map *s_map);
