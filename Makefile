@@ -22,12 +22,6 @@ FDF_SRCS = main.c \
 	task_mlx.c \
 	utils.c
 
-#FDF BONUS
-FDF_BONUS_SRC_PATH =./fdf_utils_bonus/
-FDF_BONUS_INCLUDES =./fdf_utils_bonus/includes/fdf_bonus.h
-FDF_BONUS_OBJ = $(addprefix $(FDF_BONUS_SRC_PATH), $(FDF_BONUS_SRCS:.c=.o))
-
-FDF_BONUS_SRCS = \
 
 #MLX42
 LIB_MLX_FLAGS = -Iinclude -ldl -lglfw -pthread -lm
@@ -36,9 +30,6 @@ LIB_MLX_FLAGS = -Iinclude -ldl -lglfw -pthread -lm
 # LIBMLX_OBJ = $(addprefix $(LIBMLX_SRC_PATH), $(LIBMLX_SRCS:.c=.o))
 LIB_MLX_SRCS = MLX42/build/libmlx42.a
 
-ifdef WITH_BONUS
-	FDF_OBJ = $(FDF_BONUS_OBJ)
-endif
 
 NAME = fdf
 FLAGS = -Wall -Werror -Wextra
@@ -55,17 +46,15 @@ $(FDF_SRC_PATH)%.o: $(FDF_SRC_PATH)%.c $(FDF_INCLUDES)
 	$(CC) $(FLAGS) -c $< -o $@
 
 clean :
-	rm -f $(FDF_OBJ) $(FDF_BONUS_OBJ) $(LIBFT_PATH1) $(LIBFT_PATH2) $(GNL_OBJ) $(PRINTF_OBJ)
+	rm -f $(FDF_OBJ) $(LIBFT_PATH1) $(LIBFT_PATH2) $(GNL_OBJ) $(PRINTF_OBJ)
 
 fclean : clean
 	rm -f $(NAME)
 
 re : fclean all
 
-bonus: $(if $(wildcard $(OBJ)), fclean)
-	$(MAKEFLAG) WITH_BONUS=TRUE
 
 libft :
 	$(MAKEFLAG) -C $(LIBFT_DIR)
 
-.PHONY: all clean fclean re bonus libft
+.PHONY: all clean fclean re libft
