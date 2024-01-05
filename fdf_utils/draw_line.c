@@ -6,7 +6,7 @@
 /*   By: pmelo-ca <pmelo-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 14:52:06 by pmelo-ca          #+#    #+#             */
-/*   Updated: 2024/01/05 15:04:09 by pmelo-ca         ###   ########.fr       */
+/*   Updated: 2024/01/05 16:54:33 by pmelo-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,9 @@ void	draw_line(mlx_image_t *img, float **converted_matrix, int start,
 static void	draw_vertical_line(mlx_image_t *img, float **converted_matrix,
 		int start, int end)
 {
+	int	x;
+
+	x = 0;
 	if ((int)converted_matrix[end][1] > converted_matrix[start][1])
 	{
 		while ((int)converted_matrix[start][1] != (int)converted_matrix[end][1])
@@ -55,6 +58,7 @@ static void	draw_vertical_line(mlx_image_t *img, float **converted_matrix,
 			mlx_put_pixel(img, (int)converted_matrix[start][0],
 				(int)converted_matrix[start][1], DRAWING_COLOR);
 			converted_matrix[start][1]++;
+			x++;
 		}
 	}
 	else
@@ -64,13 +68,18 @@ static void	draw_vertical_line(mlx_image_t *img, float **converted_matrix,
 			mlx_put_pixel(img, (int)converted_matrix[start][0],
 				(int)converted_matrix[start][1], DRAWING_COLOR);
 			converted_matrix[start][1]--;
+			x--;
 		}
 	}
+	converted_matrix[start][1] -= x;
 }
 
 static void	draw_horizontal_line(mlx_image_t *img, float **converted_matrix,
 		int start, int end)
 {
+	int	x;
+
+	x = 0;
 	if ((int)converted_matrix[end][0] > (int)converted_matrix[start][0])
 	{
 		while ((int)converted_matrix[start][0] != (int)converted_matrix[end][0])
@@ -78,6 +87,7 @@ static void	draw_horizontal_line(mlx_image_t *img, float **converted_matrix,
 			mlx_put_pixel(img, (int)converted_matrix[start][0],
 				(int)converted_matrix[start][1], DRAWING_COLOR);
 			converted_matrix[start][0]++;
+			x++;
 		}
 	}
 	else
@@ -87,46 +97,66 @@ static void	draw_horizontal_line(mlx_image_t *img, float **converted_matrix,
 			mlx_put_pixel(img, (int)converted_matrix[start][0],
 				(int)converted_matrix[start][1], DRAWING_COLOR);
 			converted_matrix[start][0]--;
+			x--;
 		}
 	}
+	converted_matrix[start][0] -= x;
 }
 
 static void	draw_line_larger_x_axis(mlx_image_t *img, float **converted_matrix,
 		int start, int end, t_data_draw_line *line_data)
 {
+	int	x;
+	int	y;
+
+	x = 0;
+	y = 0;
 	line_data->control = line_data->dx / 2;
 	mlx_put_pixel(img, (int)converted_matrix[start][0],
 		(int)converted_matrix[start][1], DRAWING_COLOR);
 	while ((int)converted_matrix[start][0] != (int)converted_matrix[end][0])
 	{
 		converted_matrix[start][0] += line_data->inc_x;
+		x += line_data->inc_x;
 		line_data->control -= line_data->dy;
 		if (line_data->control < 0)
 		{
 			converted_matrix[start][1] += line_data->inc_y;
+			y += line_data->inc_y;
 			line_data->control += line_data->dx;
 		}
 		mlx_put_pixel(img, (int)converted_matrix[start][0],
 			(int)converted_matrix[start][1], DRAWING_COLOR);
 	}
+	converted_matrix[start][0] -= x;
+	converted_matrix[start][1] -= y;
 }
 
 static void	draw_line_larger_y_axis(mlx_image_t *img, float **converted_matrix,
-	int start, int end, t_data_draw_line *line_data)
+		int start, int end, t_data_draw_line *line_data)
 {
+	int	x;
+	int	y;
+
+	x = 0;
+	y = 0;
 	line_data->control = line_data->dy / 2;
 	mlx_put_pixel(img, (int)converted_matrix[start][0],
 		(int)converted_matrix[start][1], DRAWING_COLOR);
 	while ((int)converted_matrix[start][1] != (int)converted_matrix[end][1])
 	{
 		converted_matrix[start][1] += line_data->inc_y;
+		y += line_data->inc_y;
 		line_data->control -= line_data->dx;
 		if (line_data->control < 0)
 		{
 			converted_matrix[start][0] += line_data->inc_x;
+			x += line_data->inc_x;
 			line_data->control += line_data->dy;
 		}
 		mlx_put_pixel(img, (int)converted_matrix[start][0],
 			(int)converted_matrix[start][1], DRAWING_COLOR);
 	}
+	converted_matrix[start][0] -= x;
+	converted_matrix[start][1] -= y;
 }
