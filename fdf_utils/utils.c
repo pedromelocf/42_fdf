@@ -6,7 +6,7 @@
 /*   By: pmelo-ca <pmelo-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 11:50:13 by pmelo-ca          #+#    #+#             */
-/*   Updated: 2024/01/05 15:39:23 by pmelo-ca         ###   ########.fr       */
+/*   Updated: 2024/01/07 01:11:58 by pmelo-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,13 @@ int	ft_abs(int n)
 	return (n);
 }
 
-t_data_draw_line	*new_line_data(float **converted_matrix,
-								int start,
-								int end)
+t_data_draw_line	*new_line_data(mlx_image_t *img, float **converted_matrix,
+						int start, int end)
 {
 	t_data_draw_line	*line_data;
 
 	line_data = malloc(sizeof(t_data_draw_line));
+	line_data->img = img;
 	line_data->dx = ft_abs(converted_matrix[end][0]
 			- converted_matrix[start][0]);
 	line_data->dy = ft_abs(converted_matrix[end][1]

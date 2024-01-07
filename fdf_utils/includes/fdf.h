@@ -6,7 +6,7 @@
 /*   By: pmelo-ca <pmelo-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 16:19:56 by pmelo-ca          #+#    #+#             */
-/*   Updated: 2024/01/05 17:05:42 by pmelo-ca         ###   ########.fr       */
+/*   Updated: 2024/01/07 01:12:09 by pmelo-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,7 @@ typedef struct s_data_draw_line
 	int				control;
 	int				inc_x;
 	int				inc_y;
+	mlx_image_t		*img;
 }					t_data_draw_line;
 
 int					check_map_format(const char *argv);
@@ -94,7 +95,7 @@ void				draw_map(t_map *s_map, mlx_image_t *img,
 						float **converted_matrix);
 void				draw_line(mlx_image_t *img, float **converted_matrix,
 						int start, int end);
-t_data_draw_line	*new_line_data(float **converted_matrix,
+t_data_draw_line	*new_line_data(mlx_image_t *img, float **converted_matrix,
 						int start, int end);
 int					ft_abs(int n);
 
