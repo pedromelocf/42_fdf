@@ -6,7 +6,7 @@
 /*   By: pmelo-ca <pmelo-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 19:35:23 by pmelo-ca          #+#    #+#             */
-/*   Updated: 2024/01/02 12:19:55 by pmelo-ca         ###   ########.fr       */
+/*   Updated: 2024/01/07 00:06:17 by pmelo-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ t_matrix_width	*get_matrix_width(float **map_matrix, t_map *s_map)
 	s_matrix_width = malloc(sizeof(float) * 3);
 	s_matrix_width->min_matrix_width = 0;
 	s_matrix_width->max_matrix_width = 0;
-	while (x < s_map->width * s_map->height)
+	while (s_map)
 	{
 		y = 0;
 		if (map_matrix[x][y] < s_matrix_width->min_matrix_width)
@@ -30,6 +30,7 @@ t_matrix_width	*get_matrix_width(float **map_matrix, t_map *s_map)
 		if (map_matrix[x][y] > s_matrix_width->max_matrix_width)
 			s_matrix_width->max_matrix_width = map_matrix[x][y];
 		x++;
+		s_map = s_map->next;
 	}
 	if (s_matrix_width->min_matrix_width < 0)
 		s_matrix_width->matrix_width = s_matrix_width->max_matrix_width
@@ -50,7 +51,7 @@ t_matrix_height	*get_matrix_height(float **map_matrix, t_map *s_map)
 	s_matrix_height = malloc(sizeof(float) * 3);
 	s_matrix_height->min_matrix_height = 0;
 	s_matrix_height->max_matrix_height = 0;
-	while (x < s_map->height * s_map->width)
+	while (s_map)
 	{
 		y = 1;
 		if (map_matrix[x][y] < s_matrix_height->min_matrix_height)
@@ -58,6 +59,7 @@ t_matrix_height	*get_matrix_height(float **map_matrix, t_map *s_map)
 		if (map_matrix[x][y] > s_matrix_height->max_matrix_height)
 			s_matrix_height->max_matrix_height = map_matrix[x][y];
 		x++;
+		s_map = s_map->next;
 	}
 	if (s_matrix_height->min_matrix_height < 0)
 		s_matrix_height->matrix_height = s_matrix_height->max_matrix_height

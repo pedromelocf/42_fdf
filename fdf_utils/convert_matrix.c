@@ -6,7 +6,7 @@
 /*   By: pmelo-ca <pmelo-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 12:38:59 by pmelo-ca          #+#    #+#             */
-/*   Updated: 2024/01/05 15:38:52 by pmelo-ca         ###   ########.fr       */
+/*   Updated: 2024/01/07 00:38:34 by pmelo-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,13 @@ void	get_map_scale(t_map *s_map)
 	else
 		bigger = s_map->width;
 	if (bigger > 0 && bigger <= 10)
-		s_map->scale = 17;
+		s_map->scale = 25;
 	if (bigger > 10 && bigger <= 20)
 		s_map->scale = 20;
 	if (bigger > 20 && bigger < 50)
-		s_map->scale = 25;
+		s_map->scale = 18;
 	if (bigger >= 50 && bigger <= 80)
-		s_map->scale = 8;
+		s_map->scale = 12;
 	if (bigger > 80 && bigger <= 150)
 		s_map->scale = 5;
 	if (bigger > 150 && bigger <= 200)
@@ -35,7 +35,7 @@ void	get_map_scale(t_map *s_map)
 	if (bigger > 200 && bigger <= 500)
 		s_map->scale = 1.5;
 	if (bigger > 500)
-		s_map->scale = 1;
+		s_map->scale = 0.5;
 	return ;
 }
 
