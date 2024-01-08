@@ -6,22 +6,22 @@
 /*   By: pmelo-ca <pmelo-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 14:52:06 by pmelo-ca          #+#    #+#             */
-/*   Updated: 2024/01/07 01:15:43 by pmelo-ca         ###   ########.fr       */
+/*   Updated: 2024/01/08 09:31:53 by pmelo-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./includes/fdf.h"
 
-static void	draw_vertical_line(t_data_draw_line *line_data, float **converted_matrix,
-				int start, int end);
-static void	draw_horizontal_line(t_data_draw_line *line_data, float **converted_matrix,
-				int start, int end);
+static void	draw_vertical_line(t_data_draw_line *line_data,
+				float **converted_matrix, int start, int end);
+static void	draw_horizontal_line(t_data_draw_line *line_data,
+				float **converted_matrix, int start, int end);
 
-static void	draw_line_larger_x_axis(t_data_draw_line *line_data, float **converted_matrix,
-				int start, int end);
+static void	draw_line_larger_x_axis(t_data_draw_line *line_data,
+				float **converted_matrix, int start, int end);
 
-static void	draw_line_larger_y_axis(t_data_draw_line *line_data, float **converted_matrix,
-				int start, int end);
+static void	draw_line_larger_y_axis(t_data_draw_line *line_data,
+				float **converted_matrix, int start, int end);
 
 void	draw_line(mlx_image_t *img, float **converted_matrix, int start,
 		int end)
@@ -43,8 +43,8 @@ void	draw_line(mlx_image_t *img, float **converted_matrix, int start,
 	free(line_data);
 }
 
-static void	draw_vertical_line(t_data_draw_line *line_data, float **converted_matrix,
-		int start, int end)
+static void	draw_vertical_line(t_data_draw_line *line_data,
+		float **converted_matrix, int start, int end)
 {
 	int	x;
 
@@ -72,8 +72,8 @@ static void	draw_vertical_line(t_data_draw_line *line_data, float **converted_ma
 	converted_matrix[start][1] -= x;
 }
 
-static void	draw_horizontal_line(t_data_draw_line *line_data, float **converted_matrix,
-		int start, int end)
+static void	draw_horizontal_line(t_data_draw_line *line_data,
+		float **converted_matrix, int start, int end)
 {
 	int	x;
 
@@ -101,8 +101,8 @@ static void	draw_horizontal_line(t_data_draw_line *line_data, float **converted_
 	converted_matrix[start][0] -= x;
 }
 
-static void	draw_line_larger_x_axis(t_data_draw_line *line_data, float **converted_matrix,
-		int start, int end)
+static void	draw_line_larger_x_axis(t_data_draw_line *line_data,
+		float **converted_matrix, int start, int end)
 {
 	int	x;
 	int	y;
@@ -130,8 +130,8 @@ static void	draw_line_larger_x_axis(t_data_draw_line *line_data, float **convert
 	converted_matrix[start][1] -= y;
 }
 
-static void	draw_line_larger_y_axis(t_data_draw_line *line_data, float **converted_matrix,
-		int start, int end)
+static void	draw_line_larger_y_axis(t_data_draw_line *line_data,
+		float **converted_matrix, int start, int end)
 {
 	int	x;
 	int	y;
