@@ -6,7 +6,7 @@
 /*   By: pmelo-ca <pmelo-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 20:33:21 by pmelo-ca          #+#    #+#             */
-/*   Updated: 2024/01/07 01:23:42 by pmelo-ca         ###   ########.fr       */
+/*   Updated: 2024/01/08 10:59:37 by pmelo-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ float	**get_map_matrix(t_map *s_map)
 			* cos(COS_30);
 		y++;
 		map_matrix[x][y] = (s_map->s_coordinate->x + s_map->s_coordinate->y)
-			* sin(SIN_30) - 0.2 * s_map->s_coordinate->z;
+			* sin(SIN_30) - 0.1 * s_map->s_coordinate->z;
 		x++;
 		s_map = s_map->next;
 	}
