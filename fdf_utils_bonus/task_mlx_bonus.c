@@ -6,11 +6,11 @@
 /*   By: pmelo-ca <pmelo-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 12:37:00 by pmelo-ca          #+#    #+#             */
-/*   Updated: 2024/01/09 15:29:30 by pmelo-ca         ###   ########.fr       */
+/*   Updated: 2024/01/09 15:39:58 by pmelo-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./includes/fdf.h"
+#include "./includes/fdf_bonus.h"
 
 void	task_mlx(mlx_t *mlx)
 {

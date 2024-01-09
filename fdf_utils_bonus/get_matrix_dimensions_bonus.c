@@ -6,11 +6,11 @@
 /*   By: pmelo-ca <pmelo-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 19:35:23 by pmelo-ca          #+#    #+#             */
-/*   Updated: 2024/01/09 15:29:23 by pmelo-ca         ###   ########.fr       */
+/*   Updated: 2024/01/09 15:39:46 by pmelo-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./includes/fdf.h"
+#include "./includes/fdf_bonus.h"
 
 t_matrix_width	*get_matrix_width(float **map_matrix, t_map *s_map)
 {

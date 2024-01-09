@@ -6,13 +6,13 @@
 /*   By: pmelo-ca <pmelo-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 20:33:21 by pmelo-ca          #+#    #+#             */
-/*   Updated: 2024/01/09 15:29:29 by pmelo-ca         ###   ########.fr       */
+/*   Updated: 2024/01/09 15:39:56 by pmelo-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./includes/fdf.h"
+#include "./includes/fdf_bonus.h"
 
-void	render(t_map *s_map, mlx_image_t *img)
+float	**render(t_map *s_map, mlx_image_t *img)
 {
 	float	**map_matrix;
 	float	**converted_matrix;
@@ -21,7 +21,7 @@ void	render(t_map *s_map, mlx_image_t *img)
 	map_matrix = get_map_matrix(s_map);
 	converted_matrix = convert_matrix(s_map, map_matrix);
 	draw_map(s_map, img, converted_matrix);
-	return ;
+	return (converted_matrix);
 }
 
 float	**get_map_matrix(t_map *s_map)
@@ -79,5 +79,4 @@ void	draw_map(t_map *s_map, mlx_image_t *img, float **converted_matrix)
 		x++;
 		s_map = s_map->next;
 	}
-	clean_matrix(converted_matrix);
 }

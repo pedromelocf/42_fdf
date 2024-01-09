@@ -6,11 +6,11 @@
 /*   By: pmelo-ca <pmelo-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 18:06:23 by pmelo-ca          #+#    #+#             */
-/*   Updated: 2024/01/09 15:29:27 by pmelo-ca         ###   ########.fr       */
+/*   Updated: 2024/01/09 15:39:54 by pmelo-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./includes/fdf.h"
+#include "./includes/fdf_bonus.h"
 
 t_map	*map_read(const char *argv)
 {
