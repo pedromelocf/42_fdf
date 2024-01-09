@@ -6,7 +6,7 @@
 /*   By: pmelo-ca <pmelo-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 14:52:06 by pmelo-ca          #+#    #+#             */
-/*   Updated: 2024/01/08 09:31:53 by pmelo-ca         ###   ########.fr       */
+/*   Updated: 2024/01/09 12:21:01 by pmelo-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ static void	draw_vertical_line(t_data_draw_line *line_data,
 	{
 		while ((int)converted_matrix[start][1] != (int)converted_matrix[end][1])
 		{
-			mlx_put_pixel(line_data->img, (int)converted_matrix[start][0],
+			put_pixel(line_data->img, (int)converted_matrix[start][0],
 				(int)converted_matrix[start][1], DRAWING_COLOR);
 			converted_matrix[start][1]++;
 			x++;
@@ -63,7 +63,7 @@ static void	draw_vertical_line(t_data_draw_line *line_data,
 	{
 		while ((int)converted_matrix[start][1] != (int)converted_matrix[end][1])
 		{
-			mlx_put_pixel(line_data->img, (int)converted_matrix[start][0],
+			put_pixel(line_data->img, (int)converted_matrix[start][0],
 				(int)converted_matrix[start][1], DRAWING_COLOR);
 			converted_matrix[start][1]--;
 			x--;
@@ -82,7 +82,7 @@ static void	draw_horizontal_line(t_data_draw_line *line_data,
 	{
 		while ((int)converted_matrix[start][0] != (int)converted_matrix[end][0])
 		{
-			mlx_put_pixel(line_data->img, (int)converted_matrix[start][0],
+			put_pixel(line_data->img, (int)converted_matrix[start][0],
 				(int)converted_matrix[start][1], DRAWING_COLOR);
 			converted_matrix[start][0]++;
 			x++;
@@ -92,7 +92,7 @@ static void	draw_horizontal_line(t_data_draw_line *line_data,
 	{
 		while ((int)converted_matrix[start][0] != (int)converted_matrix[end][0])
 		{
-			mlx_put_pixel(line_data->img, (int)converted_matrix[start][0],
+			put_pixel(line_data->img, (int)converted_matrix[start][0],
 				(int)converted_matrix[start][1], DRAWING_COLOR);
 			converted_matrix[start][0]--;
 			x--;
@@ -110,7 +110,7 @@ static void	draw_line_larger_x_axis(t_data_draw_line *line_data,
 	x = 0;
 	y = 0;
 	line_data->control = line_data->dx / 2;
-	mlx_put_pixel(line_data->img, (int)converted_matrix[start][0],
+	put_pixel(line_data->img, (int)converted_matrix[start][0],
 		(int)converted_matrix[start][1], DRAWING_COLOR);
 	while ((int)converted_matrix[start][0] != (int)converted_matrix[end][0])
 	{
@@ -123,7 +123,7 @@ static void	draw_line_larger_x_axis(t_data_draw_line *line_data,
 			y += line_data->inc_y;
 			line_data->control += line_data->dx;
 		}
-		mlx_put_pixel(line_data->img, (int)converted_matrix[start][0],
+		put_pixel(line_data->img, (int)converted_matrix[start][0],
 			(int)converted_matrix[start][1], DRAWING_COLOR);
 	}
 	converted_matrix[start][0] -= x;
@@ -139,7 +139,7 @@ static void	draw_line_larger_y_axis(t_data_draw_line *line_data,
 	x = 0;
 	y = 0;
 	line_data->control = line_data->dy / 2;
-	mlx_put_pixel(line_data->img, (int)converted_matrix[start][0],
+	put_pixel(line_data->img, (int)converted_matrix[start][0],
 		(int)converted_matrix[start][1], DRAWING_COLOR);
 	while ((int)converted_matrix[start][1] != (int)converted_matrix[end][1])
 	{
@@ -152,7 +152,7 @@ static void	draw_line_larger_y_axis(t_data_draw_line *line_data,
 			x += line_data->inc_x;
 			line_data->control += line_data->dy;
 		}
-		mlx_put_pixel(line_data->img, (int)converted_matrix[start][0],
+		put_pixel(line_data->img, (int)converted_matrix[start][0],
 			(int)converted_matrix[start][1], DRAWING_COLOR);
 	}
 	converted_matrix[start][0] -= x;
