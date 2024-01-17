@@ -19,6 +19,7 @@ FDF_SRCS = check_map_format.c \
 	key_hook.c \
 	main.c \
 	map_read.c \
+	print_return.c \
 	render.c \
 	task_mlx.c \
 	utils.c

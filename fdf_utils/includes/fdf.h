@@ -6,7 +6,7 @@
 /*   By: pmelo-ca <pmelo-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 16:19:56 by pmelo-ca          #+#    #+#             */
-/*   Updated: 2024/01/09 12:19:18 by pmelo-ca         ###   ########.fr       */
+/*   Updated: 2024/01/17 16:18:32 by pmelo-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,7 @@ typedef struct s_data_draw_line
 }					t_data_draw_line;
 
 int					check_map_format(const char *argv);
+int					print_return(char *message, int return_value);
 
 float				**get_map_matrix(t_map *s_map);
 t_matrix_width		*get_matrix_width(float **map_matrix, t_map *s_map);

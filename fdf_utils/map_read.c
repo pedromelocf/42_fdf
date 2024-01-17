@@ -6,7 +6,7 @@
 /*   By: pmelo-ca <pmelo-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 18:06:23 by pmelo-ca          #+#    #+#             */
-/*   Updated: 2024/01/05 15:11:05 by pmelo-ca         ###   ########.fr       */
+/*   Updated: 2024/01/17 16:03:37 by pmelo-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,6 @@ t_map	*map_read(const char *argv)
 	fd = open(argv, O_RDONLY);
 	y = 0;
 	s_temp = NULL;
-	if (fd == -1)
-	{
-		perror("Error opening file");
-		return (NULL);
-	}
 	while (1)
 	{
 		line = get_next_line(fd);
@@ -35,6 +30,11 @@ t_map	*map_read(const char *argv)
 		s_temp = insert_node(s_temp, new_list(line, y));
 		y++;
 		free(line);
+	}
+	if (s_temp == NULL || s_temp->width < 2)
+	{
+		clean_data(s_temp);
+		return (NULL);
 	}
 	s_temp->height = y;
 	close(fd);
@@ -50,7 +50,12 @@ t_map	*new_list(char *line, int y)
 	x = 0;
 	s_list = NULL;
 	split_result = ft_split(line, ' ');
-	while (split_result[x] != NULL)
+	if (!split_result)
+	{
+		clean_split(split_result);
+		return (NULL);
+	}
+	while (split_result[x])
 	{
 		s_list = insert_node(s_list, new_node(x, y, ft_atoi(split_result[x])));
 		x++;
