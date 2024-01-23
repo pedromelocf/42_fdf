@@ -54,6 +54,5 @@ re : fclean all
 
 libft :
 	$(MAKEFLAG) -C $(LIBFT_DIR)
-	cp $(LIBFT_DIR)/libftprintf.a $(NAME)
 
 .PHONY: all clean fclean re libft
